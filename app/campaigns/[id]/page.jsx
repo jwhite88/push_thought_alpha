@@ -50,16 +50,7 @@ const CampaignPage = () => {
       {loading && <Spinner loading={loading} />}
       {!loading && campaign && (<>
         <CampaignHeaderImage image={ campaign.images[0]} />
-        <section>
-          <div className="container m-auto py-6 px-6">
-            <Link
-              href="/campaigns"
-              className="text-blue-500 hover:text-blue-600 flex items-center"
-            >
-              <FaArrowLeft className="mr-2" /> Back to Properties
-            </Link>
-      </div>
-    </section>
+
     <section className="bg-blue-50">
       <div className="container m-auto py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-70/30 w-full gap-6">
@@ -81,7 +72,7 @@ const CampaignPage = () => {
 
             {/* <!-- Contact Form --> */}
             <div className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold mb-6">Contact Property Manager</h3>
+              <h3 className="text-xl font-bold mb-6">Message your Representatives</h3>
               <form>
               <div className='mb-4'>
                 <label
