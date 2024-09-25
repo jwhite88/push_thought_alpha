@@ -89,7 +89,7 @@ const ProfilePage = () => {
                 />
               </div>
               <h2 className="text-2xl mb-4"><span className="font-bold block">Name: </span>{profileName}</h2>
-              <h2 className="text-2xl"><span className="font-bold block">Email: </span>{profileEmail}</h2>
+              {/* <h2 className="text-2xl"><span className="font-bold block">Email: </span>{profileEmail}</h2> */}
             </div>
 
             <div className="md:w-3/4 md:pl-4">
