@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from "react"
+import TagInput from "./TagInput"
 
 const CampaignAddForm = () => {
     const [mounted, setMounted] = useState(false)
@@ -62,17 +63,17 @@ const CampaignAddForm = () => {
         // Clone the current array
         const updatedAmenities = [...fields.amenities]
 
-        if(checked) {
-            // Add value to array
-            updatedAmenities.push(value)
-        } else {
-            // Remove value from array
-            const index = updatedAmenities.indexOf(value)
+        // if(checked) {
+        //     // Add value to array
+        //     updatedAmenities.push(value)
+        // } else {
+        //     // Remove value from array
+        //     const index = updatedAmenities.indexOf(value)
 
-            if (index !== -1) {
-                updatedAmenities.splice(index, 1)
-            }
-        }
+        //     if (index !== -1) {
+        //         updatedAmenities.splice(index, 1)
+        //     }
+        // }
 
         // Update state with updated array
         setFields((prevFields) => ({
@@ -515,7 +516,16 @@ const CampaignAddForm = () => {
         onChange={handleChange}
       />
     </div>*/}
+    <div className="mb-4">
+      
+    <label
+        htmlFor="tags"
+        className="block text-gray-700 font-bold mb-2"
+        >Tags</label
+      >
+      <TagInput/>
 
+    </div>
     <div className="mb-4">
       <label htmlFor="images" className="block text-gray-700 font-bold mb-2"
         >Images (Select up to 4 images)</label
