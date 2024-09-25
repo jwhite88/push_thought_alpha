@@ -74,6 +74,11 @@ const CampaignSchema = new Schema({
     //         type: String
     //     },        
     // },
+    tags: [
+        {
+            type: String
+        }
+    ],
     images: [
         {
             type: String
