@@ -107,42 +107,19 @@ const CampaignAddForm = () => {
         encType='multipart/form-data'
     >
     <h2 className="text-3xl text-center font-semibold mb-6">
-      Add Campaign
+      Add Messaging Campaign
     </h2>
 
     <div className="mb-4">
-      <label
-        htmlFor="type"
-        className="block text-gray-700 font-bold mb-2"
-        >Property Type</label
-      >
-      <select
-        id="type"
-        name="type"
-        className="border rounded w-full py-2 px-3"
-        required
-        value={fields.type}
-        onChange={handleChange}
-      >
-        <option value="Apartment">Apartment</option>
-        <option value="Condo">Condo</option>
-        <option value="House">House</option>
-        <option value="Cabin Or Cottage">Cabin or Cottage</option>
-        <option value="Room">Room</option>
-        <option value="Studio">Studio</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
-    <div className="mb-4">
       <label className="block text-gray-700 font-bold mb-2"
-        >Listing Name</label
+        >Campaign Title</label
       >
       <input
         type="text"
         id="name"
         name="name"
         className="border rounded w-full py-2 px-3 mb-2"
-        placeholder="eg. Beautiful Apartment In Miami"
+        placeholder="eg. Stop funding for XXX"
         required
         value={fields.name}
         onChange={handleChange}
@@ -159,13 +136,13 @@ const CampaignAddForm = () => {
         name="description"
         className="border rounded w-full py-2 px-3"
         rows="4"
-        placeholder="Add an optional description of your campaign"
+        placeholder="Add an description of your messaging campaign"
         value={fields.description}
         onChange={handleChange}
       ></textarea>
     </div>
 
-    <div className="mb-4 bg-blue-50 p-4">
+    {/* <div className="mb-4 bg-blue-50 p-4">
       <label className="block text-gray-700 font-bold mb-2">Location</label>
       <input
         type="text"
@@ -205,9 +182,9 @@ const CampaignAddForm = () => {
         value={fields.location.zipcode}
         onChange={handleChange}
       />
-    </div>
+    </div> */}
 
-    <div className="mb-4 flex flex-wrap">
+    {/* <div className="mb-4 flex flex-wrap">
       <div className="w-full sm:w-1/3 pr-2">
         <label htmlFor="beds" className="block text-gray-700 font-bold mb-2"
           >Beds</label
@@ -252,9 +229,9 @@ const CampaignAddForm = () => {
           onChange={handleChange}
         />
       </div>
-    </div>
+    </div> */}
 
-    <div className="mb-4">
+    {/* <div className="mb-4">
       <label className="block text-gray-700 font-bold mb-2"
         >Amenities</label
       >
@@ -444,9 +421,9 @@ const CampaignAddForm = () => {
           <label htmlFor="amenity_coffee_maker">Coffee Maker</label>
         </div>
       </div>
-    </div>
+    </div> */}
 
-    <div className="mb-4 bg-blue-50 p-4">
+    {/* <div className="mb-4 bg-blue-50 p-4">
       <label className="block text-gray-700 font-bold mb-2"
         >Rates (Leave blank if not applicable)</label
       >
@@ -537,12 +514,13 @@ const CampaignAddForm = () => {
         value={fields.seller_info.phone}
         onChange={handleChange}
       />
-    </div>
+    </div>*/}
 
     <div className="mb-4">
       <label htmlFor="images" className="block text-gray-700 font-bold mb-2"
         >Images (Select up to 4 images)</label
       >
+      
       <input
         type="file"
         id="images"
@@ -553,7 +531,7 @@ const CampaignAddForm = () => {
         onChange={handleImageChange}
         required
       />
-    </div>
+    </div> 
 
     <div>
       <button
