@@ -34,16 +34,23 @@ export const POST = async (request) => {
 
         const formData = await request.formData()
 
+        for (const [key, value] of formData.entries()) {
+            console.log(`${key} and ${value}`)
+        }
+
         // Access all values from amenities and images
         // const amenities = formData.getAll('amenities')
         const images = formData.getAll('images').filter((image) => image.name !== '')
+        const tags = formData.getAll('tags')
+
+        console.log("tags:", tags)
 
         // Create campaignData object for database
         const campaignData = {
             // type: formData.get('type'),
             name: formData.get('name'),
             description: formData.get('description'),
-            tags: formData.get('tags'),
+            tags: formData.getAll('tags'),
             // location: {
             //     street: formData.get('location.street'),
             //     city: formData.get('location.city'),

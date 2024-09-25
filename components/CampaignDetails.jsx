@@ -18,6 +18,16 @@ const CampaignDetails = ({campaign}) => {
               <p className="text-gray-500 mb-4 text-center">
                 {campaign.description}
               </p>
+              <div className='campaign-tags mx-auto bg-white'>
+              {campaign.tags.map((item) => {
+                return (
+                  <div className='bg-gray-400'>
+                    {item}
+                  </div>
+                )
+              } )}
+              </div>
+
             </div>
           </main>
   )

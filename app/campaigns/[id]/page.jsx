@@ -22,6 +22,7 @@ const CampaignPage = () => {
 
       try {
         const campaign = await fetchCampaign(id)
+        console.log("campaign:", campaign)
         setCampaign(campaign)
       } catch (error) {
         console.error('Error fetching campaign: ', error)

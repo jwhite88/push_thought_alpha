@@ -18,14 +18,15 @@ const TagInput = () => {
 
   return (
     <div className="tag-input">
-      <ul className="tag-list">
+      {/* <ul className="tag-list"> */}
         {tags.map((tag, index) => (
-          <li key={index} className="tag">
-            {tag}
+          <span key={index} className="tag" style={{display: "block", backgroundColor: "white"}}>
+            <input style={{color: "black", display: "inline-block", width: "10px", borderRadius: "10px"}} type='type' name={`tags`} value={tag} />
+            {/* {tag} */}
             <span className="tag-close" onClick={() => removeTag(index)}>x</span>
-          </li>
+          </span>
         ))}
-      </ul>
+      {/* </ul> */}
       <input
         type="text"
         value={inputValue}
@@ -63,6 +64,7 @@ const TagInput = () => {
         .tag-close {
           margin-left: 8px;
           cursor: pointer;
+          color: black;
         }
 
         input {

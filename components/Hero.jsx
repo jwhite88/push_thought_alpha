@@ -26,14 +26,14 @@ const Hero = () => {
             <input
               type="text"
               id="location"
-              placeholder="Enter Location (City, State, Zip, etc"
+              placeholder="Enter keywords"
               className="w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-blue-500"
             />
           </div>
           <div className="w-full md:w-2/5 md:pl-2">
             <label htmlFor="campaign-type" className="sr-only">Campaign Type</label>
             <select
-              id="cmapign-type"
+              id="campaign-type"
               className="w-full px-4 py-3 rounded-lg bg-white text-gray-800 focus:outline-none focus:ring focus:ring-blue-500"
             >
               <option value="All">All</option>
