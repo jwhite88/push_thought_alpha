@@ -112,7 +112,7 @@ const ProfilePage = () => {
                     </Link>
                     <div className="mt-2">
                       <p className="text-lg font-semibold">{campaign.name}</p>
-                      <p className="text-gray-600">Address: { campaign.location.street } {campaign.location.city} {campaign.location.state}  </p>
+                      {/* <p className="text-gray-600">Address: { campaign.location.street } {campaign.location.city} {campaign.location.state}  </p> */}
                     </div>
                     <div className="mt-2">
                       <Link href={`/campaigns/${campaign._id}/edit`}
