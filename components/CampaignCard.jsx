@@ -79,7 +79,7 @@ const getRateDisplay = () => {
           <span className="text-orange-700"> {campaign.location.city} {campaign.location.state} </span>
         </div> */}
         <div className="flex align-middle gap-2 mb-4 lg:mb-0">
-          <span className="text-orange-700"> {campaign.location.city} {campaign.location.state} </span>
+          <span className="text-orange-700"> Tags to be added</span>
         </div>      
         <Link
           href={`/campaigns/${campaign._id}`}
