@@ -5,15 +5,16 @@ import { FaBed, FaBath, FaRulerCombined, FaMoneyBill, FaMapMarker } from 'react-
 const CampaignCard = ({campaign}) => {
 
 const getRateDisplay = () => {
-    const { rates } = campaign
+    // const { rates } = campaign
     
-    if (rates.monthly) {
-        return `${rates.monthly.toLocaleString()}/mo`
-    } else if (rates.weekly) {
-        return `${rates.weekly.toLocaleString()}/wk`
-    } else if (rates.nightly) {
-        return `${rates.nightly.toLocaleString()}/night`
-    }
+    // if (rates.monthly) {
+    //     return `${rates.monthly.toLocaleString()}/mo`
+    // } else if (rates.weekly) {
+    //     return `${rates.weekly.toLocaleString()}/wk`
+    // } else if (rates.nightly) {
+    //     return `${rates.nightly.toLocaleString()}/night`
+    // }
+    return 10
 
 }
 
@@ -56,7 +57,7 @@ const getRateDisplay = () => {
       <div
         className="flex justify-center gap-4 text-green-900 text-sm mb-4"
       >
-        { campaign.rates.nightly && (
+        {/* { campaign.rates.nightly && (
             <p> 
                 <FaMoneyBill className='inline mr-2' /> Nightly
             </p>
@@ -66,7 +67,7 @@ const getRateDisplay = () => {
         ) }
         { campaign.rates.monthly && (
             <p><FaMoneyBill className='inline mr-2' /> Monthly</p>
-        ) }                
+        ) }                 */}
         
       </div>
 
@@ -75,7 +76,7 @@ const getRateDisplay = () => {
       <div className="flex flex-col lg:flex-row justify-between mb-4">
         <div className="flex align-middle gap-2 mb-4 lg:mb-0">
             <FaMapMarker className='text-orange-700 mt-1' />
-          <span className="text-orange-700"> {campaign.location.city} {campaign.location.state} </span>
+          {/* <span className="text-orange-700"> {campaign.location.city} {campaign.location.state} </span> */}
         </div>
         <Link
           href={`/campaigns/${campaign._id}`}

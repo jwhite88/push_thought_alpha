@@ -14,66 +14,66 @@ const CampaignSchema = new Schema({
         type: String,
         // reequired: true,
     },
-    type: {
-        type: String,
-        required: true
-    },
+    // type: {
+    //     type: String,
+    //     // required: true
+    // },
     description: {
         type: String,
     },
-    location: {
-        street:{
-            type: String
-        },
-        city:{
-            type: String
-        },
-        state:{
-            type: String
-        },
-        zipcode:{
-            type: String
-        },    
-    },
-    beds: {
-        type: Number,
-        required: true
-    },
-    baths: {
-        type: Number,
-        required: true        
-    },
-    square_feet: {
-        type: Number,
-        required: true
-    },
-    amenities: [
-        {
-            type: String
-        },
-    ],
-    rates: {
-        nightly: {
-            type: Number
-        },
-        weekly: {
-            type: Number
-        },
-        monthly: {
-            type: Number
-        },
-    },
-    seller_info: {
-        name: {
-            type: String
-        },
-        email: {
-            type: String
-        },
-        phone: {
-            type: String
-        },        
-    },
+    // location: {
+    //     street:{
+    //         type: String
+    //     },
+    //     city:{
+    //         type: String
+    //     },
+    //     state:{
+    //         type: String
+    //     },
+    //     zipcode:{
+    //         type: String
+    //     },    
+    // },
+    // beds: {
+    //     type: Number,
+    //     required: true
+    // },
+    // baths: {
+    //     type: Number,
+    //     required: true        
+    // },
+    // square_feet: {
+    //     type: Number,
+    //     required: true
+    // },
+    // amenities: [
+    //     {
+    //         type: String
+    //     },
+    // ],
+    // rates: {
+    //     nightly: {
+    //         type: Number
+    //     },
+    //     weekly: {
+    //         type: Number
+    //     },
+    //     monthly: {
+    //         type: Number
+    //     },
+    // },
+    // seller_info: {
+    //     name: {
+    //         type: String
+    //     },
+    //     email: {
+    //         type: String
+    //     },
+    //     phone: {
+    //         type: String
+    //     },        
+    // },
     images: [
         {
             type: String
