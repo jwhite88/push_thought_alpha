@@ -1,12 +1,33 @@
-import { FaShare } from "react-icons/fa"
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
+  FacebookIcon,
+  TwitterIcon,
+  WhatsappIcon,
+  EmailIcon,
 
-const ShareButtons = () => {
+} from 'react-share'
+
+const ShareButtons = (campaign) => {
+  const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/campaigns/${campaign._id}`
+
   return (
-    <button
-    className="bg-orange-500 hover:bg-orange-600 text-white font-bold w-full py-2 px-4 rounded-full flex items-center justify-center"
-  >
-    <FaShare className="mr-2" /> Share Property
-  </button>
+    <>
+      <h3 className='text-xl font-bold text-center pt-2'>
+        Contact your Representatives
+      </h3>
+      <div className="flex gap-3 justify-center pb-5">
+        <FacebookShareButton className='justify-center'
+          url={shareUrl}
+          quote={campaign.name}
+          hashtab={ `$#pushthought`}
+        >
+          <FacebookIcon size={40} round={true} />
+        </FacebookShareButton>
+      </div>
+    </>
   )
 }
 
