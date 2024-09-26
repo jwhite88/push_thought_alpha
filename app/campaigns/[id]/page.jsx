@@ -64,9 +64,9 @@ const CampaignPage = () => {
           {/* <!-- Sidebar --> */}
           <aside className="space-y-4">       
           <BookmarkButton campaign={campaign}/>
-          <ShareButtons campaign={campaign}/>
+          
           <CampaignContactForm campaign={campaign} />
-            
+          <ShareButtons campaign={campaign}/>  
    
           </aside>
         </div>

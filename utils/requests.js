@@ -44,5 +44,27 @@ async function fetchCampaign(id){
   }
 }
 
+// Fetch representative
+async function fetchRepresentative(id){
+  try {
+    
+      // Handle the case where the domain is not availble yet
+      if(!apiDomain){
+          return null
+        }
 
-  export { fetchCampaigns, fetchCampaign }
+      const res = await fetch(`${apiDomain}/officials`)
+    
+      if (!res.ok) {
+          throw new Error('Failed to fetch data')
+      }
+
+    return res.json()
+  } catch (error) {
+      console.log(error)
+      return null
+  }
+}
+
+
+  export { fetchCampaigns, fetchCampaign, fetchRepresentative }

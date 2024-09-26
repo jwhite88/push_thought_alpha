@@ -22,10 +22,18 @@ const ShareButtons = (campaign) => {
         <FacebookShareButton className='justify-center'
           url={shareUrl}
           quote={campaign.name}
-          hashtab={ `$#pushthought`}
+          hashtag={ `#pushthought`}
         >
           <FacebookIcon size={40} round={true} />
         </FacebookShareButton>
+        
+        <TwitterShareButton className='justify-center'
+          url={shareUrl}
+          title={campaign.name}
+          hashtags={[`pushthought`]}
+        >
+          <TwitterIcon size={40} round={true} />
+        </TwitterShareButton>
       </div>
     </>
   )

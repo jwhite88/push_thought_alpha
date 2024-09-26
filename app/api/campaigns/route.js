@@ -9,7 +9,7 @@ export const GET = async (request) => {
     try{
         await connectDB()
 
-        const campaigns = await Campaign.find({})
+        const campaigns = Campaign.find({})
         
         return new Response(JSON.stringify(campaigns), {
             status: 200,
