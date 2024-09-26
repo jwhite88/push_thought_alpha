@@ -21,7 +21,7 @@ const CampaignDetails = ({campaign}) => {
               <div className='campaign-tags mx-auto bg-white'>
               {campaign.tags.map((item) => {
                 return (
-                  <div className='bg-gray-400'>
+                  <div className='campaign-tag-items border-black'>
                     {item}
                   </div>
                 )
