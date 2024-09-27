@@ -78,12 +78,21 @@ const getRateDisplay = () => {
             <FaMapMarker className='text-orange-700 mt-1' />
           <span className="text-orange-700"> {campaign.location.city} {campaign.location.state} </span>
         </div> */}
-        <div className="flex align-middle gap-2 mb-4 lg:mb-0">
+        {/* <div className="flex align-middle gap-2 mb-4 lg:mb-0">
           <span className="text-orange-700"> Tags to be added</span>
-        </div>      
+        </div>       */}
+            <div className='flex-container'>
+              {campaign.tags.map((item, index) => {
+                return (
+                    <div key={index} className='campaign-tag-items-campaigns border-black h-2.5'>
+                      {item}
+                    </div>
+                )
+              } )}   
+              </div>     
         <Link
           href={`/campaigns/${campaign._id}`}
-          className="h-[36px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-sm"
+          className="h-[44px] bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-center text-xl"
         >
           Details
         </Link>

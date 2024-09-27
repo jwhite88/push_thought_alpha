@@ -18,3 +18,32 @@
     border-radius: 5px;
 
 }
+
+.campaign-tag-items-campaigns {
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
+    border-radius: 5px;
+    border-color: gray;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100px;
+    height: 35px;
+    margin: 2px;
+    color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    font-size: 10pt;
+
+}
+
+.flex-container{
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    padding-top: 0px;
+    max-height: calc(2 * 50px); /* 2 rows of 40px height */
+    line-height: 40px; /* Ensure items are aligned vertically */
+}

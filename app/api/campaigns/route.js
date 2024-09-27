@@ -43,8 +43,6 @@ export const POST = async (request) => {
         const images = formData.getAll('images').filter((image) => image.name !== '')
         const tags = formData.getAll('tags')
 
-        console.log("tags:", tags)
-
         // Create campaignData object for database
         const campaignData = {
             // type: formData.get('type'),
