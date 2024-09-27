@@ -19,9 +19,9 @@ const CampaignDetails = ({campaign}) => {
                 {campaign.description}
               </p>
               <div className='campaign-tags mx-auto bg-white'>
-              {campaign.tags.map((item) => {
+              {campaign.tags.map((item, index) => {
                 return (
-                  <div className='campaign-tag-items border-black'>
+                  <div key={index} className='campaign-tag-items border-black'>
                     {item}
                   </div>
                 )

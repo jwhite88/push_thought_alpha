@@ -6,11 +6,12 @@ import cloudinary from '@/config/cloudinary'
 // GET /api/campaigns
 export const GET = async (request) => {
     try{
-        // params = request.nextUrl.searchParams.get('state')
-        // console.log(params)
+        // console.log(request.nextUrl.searchParams.get('state'))
+        let state = request.nextUrl.searchParams.get('state')
+        console.log(state)
         await connectDB()
 
-        const officials = await Official.find({})
+        const officials = await Official.find({'State': state})
         console.log(officials)
         return new Response(JSON.stringify(officials), {
             status: 200,

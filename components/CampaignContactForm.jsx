@@ -1,6 +1,16 @@
 import { FaPaperPlane } from "react-icons/fa"
+import { useState } from "react";
 
 const CampaignContactForm = () => {
+
+  const [selectedOption, setSelectedOption] = useState("Select"); // Default to an empty value
+
+  const handleChange = (event) => {
+    setSelectedOption(event.target.value);
+    console.log(selectedOption)
+  };
+
+
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
     <h3 className="text-xl font-bold mb-6">Showing your support is easy</h3>
@@ -12,18 +22,19 @@ const CampaignContactForm = () => {
       >
         Select State:
       </label>
-      <select name="example">
-            <option disabled selected value> -- select -- </option>
-            <option value="Alabama">Alabama</option>
-            <option value="Alaska">Alaska</option>
-            <option value="Arizona">Arizona</option>
-            <option value="Arkansas">Arkansas</option>
-            <option value="California">California</option>
-            <option value="Colorado">Colorado</option>
-            <option value="Connecticut">Connecticut</option>
-            <option value="Delaware">Delaware</option>
-            <option value="Florida">Florida</option>
-        </select>
+      <select defaultValue="">
+        <option value="" disabled>-- Select --</option>
+        <option value="Alabama">Alabama</option>
+        <option value="Alaska">Alaska</option>
+        <option value="Arizona">Arizona</option>
+        <option value="Arkansas">Arkansas</option>
+        <option value="California">California</option>
+        <option value="Colorado">Colorado</option>
+        <option value="Connecticut">Connecticut</option>
+        <option value="Delaware">Delaware</option>
+        <option value="Florida">Florida</option>
+      </select> 
+
 
 
       {/* <input
