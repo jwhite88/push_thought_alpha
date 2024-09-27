@@ -24,13 +24,13 @@
     border-width: 1px;
     padding: 5px;
     border-radius: 5px;
-    border-color: gray;
+    border-color: black;
     display: flex;
     justify-content: space-around;
     min-width: 100px;
     height: 35px;
     margin: 2px;
-    color: gray;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
