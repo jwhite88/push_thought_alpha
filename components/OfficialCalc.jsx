@@ -30,7 +30,7 @@ const OfficialCalc = ({ state, setSocialData }) => {
             </>
           )
         })
-      ) : "empty"}
+      ) : ""}
     </div>
   )
 }
