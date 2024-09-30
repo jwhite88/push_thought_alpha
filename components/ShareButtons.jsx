@@ -8,10 +8,9 @@ import {
   TwitterIcon,
   WhatsappIcon,
   EmailIcon,
-  BsTwitterX,
 
 } from 'react-share'
-
+import { BsTwitterX } from "react-icons/bs";
 
 const ShareButtons = ({ campaign, socialData }) => {
   const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/campaigns/${campaign._id}`
@@ -44,7 +43,7 @@ const ShareButtons = ({ campaign, socialData }) => {
           title={social.length > 0 && `${social[0]['Twitter']} ${campaign.name}`}
           hashtags={[`pushthought`]}
         >
-          <TwitterIcon size={40} round={true} />
+          <BsTwitterX size={40} round={true} />
         </TwitterShareButton>
 
       </div>
