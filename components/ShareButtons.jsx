@@ -11,6 +11,7 @@ import {
 
 } from 'react-share'
 import { BsTwitterX } from "react-icons/bs";
+import { FaFacebookF } from "react-icons/fa6";
 
 const ShareButtons = ({ campaign, socialData }) => {
   const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/campaigns/${campaign._id}`
@@ -34,7 +35,7 @@ const ShareButtons = ({ campaign, socialData }) => {
           quote={campaign.name}
           hashtag={`#pushthought`}
         >
-          <FacebookIcon size={40} round={true} />
+          <FaFacebookF size={40} round={true} />
         </FacebookShareButton>
 
         <TwitterShareButton className='justify-center'
