@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 
-const OfficialCalc = ({ state, getData }) => {
+const OfficialCalc = ({ state, setSocialData }) => {
   const [official, setOfficials] = useState([])
   useEffect(() => {
     console.log("Testing")
@@ -13,7 +13,7 @@ const OfficialCalc = ({ state, getData }) => {
       // Save data
       .then(data => {
         setOfficials(data)
-        getData(data)
+        setSocialData(data)
       })
 
       .catch(error => console.log(error));

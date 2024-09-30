@@ -2,7 +2,7 @@ import OfficialCalc from "./OfficialCalc";
 import { FaPaperPlane } from "react-icons/fa"
 import { useState } from "react";
 
-const CampaignContactForm = ({ campaign }) => {
+const CampaignContactForm = ({ campaign, setSocialData }) => {
 
   const [selectedOption, setSelectedOption] = useState(""); // Default to an empty value
   const [officials, setOfficials] = useState([])
@@ -65,7 +65,7 @@ const CampaignContactForm = ({ campaign }) => {
         </div>
       </form>
 
-      <OfficialCalc campaign={campaign} getData={getData} state={selectedOption} />
+      <OfficialCalc campaign={campaign} setSocialData={setSocialData} state={selectedOption} />
 
       {/* {selectedOption & <OfficialCalc state={selectedOption} />} */}
 

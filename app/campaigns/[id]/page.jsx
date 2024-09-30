@@ -19,6 +19,7 @@ const CampaignPage = () => {
   const [campaign, setCampaign] = useState(null)
   const [loading, setLoading] = useState(true)
   // need a state var
+  const [socialData, setSocialData] = useState([])
 
 
   useEffect(() => {
@@ -51,10 +52,10 @@ const CampaignPage = () => {
     )
   }
 
-  function getData(data) {
-    console.log("MYDATA::", data)
-    // get the officials data
-  }
+  // function getData(data) {
+  //   console.log("MYDATA::", data)
+  //   // get the officials data
+  // }
 
   return (
     <>
@@ -72,8 +73,8 @@ const CampaignPage = () => {
               <aside className="space-y-4">
                 {/* <BookmarkButton campaign={campaign}/> */}
 
-                <CampaignContactForm campaign={campaign} />
-                <ShareButtons getData={getData} campaign={campaign} />
+                <CampaignContactForm campaign={campaign} setSocialData={setSocialData} />
+                <ShareButtons socialData={socialData} campaign={campaign} />
 
               </aside>
             </div>
