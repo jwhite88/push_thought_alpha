@@ -21,7 +21,7 @@ const OfficialCalc = ({ state, setSocialData }) => {
 
   return (
     <div>
-      <h2>Test</h2>
+      <h2>Senators:</h2>
       {official.length > 0 ? (
         official.map((item) => {
           return (
