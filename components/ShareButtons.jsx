@@ -8,6 +8,7 @@ import {
   TwitterIcon,
   WhatsappIcon,
   EmailIcon,
+  BsTwitterX,
 
 } from 'react-share'
 
