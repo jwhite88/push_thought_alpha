@@ -29,9 +29,8 @@ const HomeCampaigns = async () => {
         <Link
           href="/campaigns"
           className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >View All Properties</Link>
+        >View All Messsaging Campaigns</Link>
       </section>
-
     </>
   )
 }
