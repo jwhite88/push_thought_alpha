@@ -3,147 +3,251 @@ import { useState, useEffect } from "react"
 import TagInput from "./TagInput"
 
 const CampaignAddForm = () => {
-    const [mounted, setMounted] = useState(false)
-    const [fields, setFields] = useState({
-        type: '',
-        name: '',
-        description: '',
-        location: {
-            street: '',
-            city: '',
-            state: '',
-            zipcode: '',
-        },
-        beds: '',
-        baths: '',
-        square_feet: '',
-        amenities: [],
-        rates: {
-            weekly: '',
-            monthly: '',
-            nightly: '',
-        },
-        seller_info: {
-            name: '',
-            email: '',
-            phone: '',
-        },
-        images: [],
-    })
+  const [mounted, setMounted] = useState(false)
+  const [fields, setFields] = useState({
+    // type: '',
+    name: '',
+    description: '',
+    target_name: '',
+    target_facebook: '',
+    target_x: '',
+    target_instagram: '',
+    // location: {
+    //     street: '',
+    //     city: '',
+    //     state: '',
+    //     zipcode: '',
+    // },
+    // beds: '',
+    // baths: '',
+    // square_feet: '',
+    // amenities: [],
+    // rates: {
+    //     weekly: '',
+    //     monthly: '',
+    //     nightly: '',
+    // },
+    // seller_info: {
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    // },
+    images: [],
+  })
 
-    useEffect(() => {
-        setMounted(true)
-    },[])
+  const [error, setError] = useState({
+    twitter: false,
+    facebook: false,
+    instagram: false,
+  });
 
-    const handleChange = (e) => { 
-        const { name, value } = e.target
 
-        // Check if nested property
-        if(name.includes('.')){
-            const [outerKey, innerKey] = name.split('.')
+  // Regular expressions for each platform
+  const twitterRegex = /^@([A-Za-z0-9_]{1,15})$/;
+  const facebookRegex = /^[A-Za-z0-9.]{5,50}$/;
+  const instagramRegex = /^@([A-Za-z0-9._]{1,30})$/;
 
-            setFields((prevFields) => ({
-                ...prevFields,
-                [outerKey]: {
-                    ...prevFields[outerKey],
-                    [innerKey]: value
-                }
-            }))
-        } else {
-            // Not nested
-            setFields((prevFields) => ({
-                ...prevFields,
-                [name]: value
-            }))
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const handleChange = (e) => {
+    const { name, value } = e.target
+
+    // Validate each handle
+    const isTwitterValid = twitterRegex.test(fields.target_x);
+    const isFacebookValid = facebookRegex.test(fields.target_facebook);
+    const isInstagramValid = instagramRegex.test(fields.target_instagram);
+
+    setError({
+      twitter: !isTwitterValid,
+      facebook: !isFacebookValid,
+      instagram: !isInstagramValid,
+    });
+
+    // If all are valid, proceed with submission or processing
+    // if (isTwitterValid && isFacebookValid && isInstagramValid) {
+    //   alert(`Handles are valid:\nTwitter: ${fields.target_x
+
+    //     }\nFacebook: ${fields.target_facebook}\nInstagram: ${fields.target_instagram}`);
+    // }
+
+    // Check if nested property
+    if (name.includes('.')) {
+      const [outerKey, innerKey] = name.split('.')
+
+      setFields((prevFields) => ({
+        ...prevFields,
+        [outerKey]: {
+          ...prevFields[outerKey],
+          [innerKey]: value
         }
+      }))
+    } else {
+      // Not nested
+      setFields((prevFields) => ({
+        ...prevFields,
+        [name]: value
+      }))
     }
-    const handleAmenitiesChange = (e) => {
-        const { value, checked } = e.target
+  }
+  const handleAmenitiesChange = (e) => {
+    const { value, checked } = e.target
 
-        // Clone the current array
-        const updatedAmenities = [...fields.amenities]
+    // Clone the current array
+    const updatedAmenities = [...fields.amenities]
 
-        // if(checked) {
-        //     // Add value to array
-        //     updatedAmenities.push(value)
-        // } else {
-        //     // Remove value from array
-        //     const index = updatedAmenities.indexOf(value)
+    // if(checked) {
+    //     // Add value to array
+    //     updatedAmenities.push(value)
+    // } else {
+    //     // Remove value from array
+    //     const index = updatedAmenities.indexOf(value)
 
-        //     if (index !== -1) {
-        //         updatedAmenities.splice(index, 1)
-        //     }
-        // }
+    //     if (index !== -1) {
+    //         updatedAmenities.splice(index, 1)
+    //     }
+    // }
 
-        // Update state with updated array
-        setFields((prevFields) => ({
-            ...prevFields,
-            amenities: updatedAmenities,
-        }))
-     }
+    // Update state with updated array
+    setFields((prevFields) => ({
+      ...prevFields,
+      amenities: updatedAmenities,
+    }))
+  }
 
-    const handleImageChange = (e) => {
-        const {files} = e.target
-        
-        // Clone images array
-        const updatedImages = [...fields.images]
+  const handleImageChange = (e) => {
+    const { files } = e.target
 
-        // Add new files to the arry
-        for (const file of files) {
-            updatedImages.push(file)
-        }
+    // Clone images array
+    const updatedImages = [...fields.images]
 
-        // Update state with array of images
-        setFields((prevFields) => ({
-            ...prevFields,
-            images: updatedImages,
-        }))
-     }
+    // Add new files to the arry
+    for (const file of files) {
+      updatedImages.push(file)
+    }
+
+    // Update state with array of images
+    setFields((prevFields) => ({
+      ...prevFields,
+      images: updatedImages,
+    }))
+  }
 
 
-    return mounted &&
-    <form 
-        action="/api/campaigns" 
-        method="POST"
-        encType='multipart/form-data'
+  return mounted &&
+    <form
+      action="/api/campaigns"
+      method="POST"
+      encType='multipart/form-data'
     >
-    <h2 className="text-3xl text-center font-semibold mb-6">
-      Add Messaging Campaign
-    </h2>
+      <h2 className="text-3xl text-center font-semibold mb-6">
+        Add Messaging Campaign
+      </h2>
 
-    <div className="mb-4">
-      <label className="block text-gray-700 font-bold mb-2"
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2"
         >Title</label
-      >
-      <input
-        type="text"
-        id="name"
-        name="name"
-        className="border rounded w-full py-2 px-3 mb-2"
-        placeholder="eg. Stop funding for XXX"
-        required
-        value={fields.name}
-        onChange={handleChange}
-      />
-    </div>
-    <div className="mb-4">
-      <label
-        htmlFor="description"
-        className="block text-gray-700 font-bold mb-2"
+        >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="eg. Stop funding for XXX"
+          required
+          value={fields.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-4">
+        <label
+          htmlFor="description"
+          className="block text-gray-700 font-bold mb-2"
         >Description</label
-      >
-      <textarea
-        id="description"
-        name="description"
-        className="border rounded w-full py-2 px-3"
-        rows="4"
-        placeholder="Add an description of your messaging campaign"
-        value={fields.description}
-        onChange={handleChange}
-      ></textarea>
-    </div>
+        >
+        <textarea
+          id="description"
+          name="description"
+          className="border rounded w-full py-2 px-3"
+          rows="4"
+          placeholder="Add an description of your messaging campaign"
+          value={fields.description}
+          onChange={handleChange}
+        ></textarea>
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2"
+        >Decision Maker Name</label
+        >
+        <input
+          type="text"
+          id="target_name"
+          name="target_name"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="eg...Pete Buttigieg"
+          required
+          value={fields.target_name}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2"
+        >Decision Maker Facebook</label
+        >
+        <input
+          type="text"
+          id="target_facebook"
+          name="target_facebook"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="eg...@PeteButtigieg"
+          required
+          value={fields.target_facebook}
+          onChange={handleChange}
+        />
+        {error.facebook && (
+          <small style={{ color: 'red' }}>Invalid Facebook handle!</small>
+        )}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2"
+        >Decision Maker X</label
+        >
+        <input
+          type="text"
+          id="target_x"
+          name="target_x"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="eg...@PeteButtigieg"
+          required
+          value={fields.target_x}
+          onChange={handleChange}
+        />
+        {error.twitter && (
+          <small style={{ color: 'red' }}>Invalid X handle!</small>
+        )}
+      </div>
+      <div className="mb-4">
+        <label className="block text-gray-700 font-bold mb-2"
+        >Decision Maker Instagram</label
+        >
+        <input
+          type="text"
+          id="target_instagram"
+          name="target_instagram"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="eg...@PeteButtigieg"
+          required
+          value={fields.target_instagram}
+          onChange={handleChange}
+        />
+        {error.instagram && (
+          <small style={{ color: 'red' }}>Invalid Instagram handle!</small>
+        )}
+      </div>
 
-    {/* <div className="mb-4 bg-blue-50 p-4">
+      {/* <div className="mb-4 bg-blue-50 p-4">
       <label className="block text-gray-700 font-bold mb-2">Location</label>
       <input
         type="text"
@@ -185,7 +289,7 @@ const CampaignAddForm = () => {
       />
     </div> */}
 
-    {/* <div className="mb-4 flex flex-wrap">
+      {/* <div className="mb-4 flex flex-wrap">
       <div className="w-full sm:w-1/3 pr-2">
         <label htmlFor="beds" className="block text-gray-700 font-bold mb-2"
           >Beds</label
@@ -232,7 +336,7 @@ const CampaignAddForm = () => {
       </div>
     </div> */}
 
-    {/* <div className="mb-4">
+      {/* <div className="mb-4">
       <label className="block text-gray-700 font-bold mb-2"
         >Amenities</label
       >
@@ -424,7 +528,7 @@ const CampaignAddForm = () => {
       </div>
     </div> */}
 
-    {/* <div className="mb-4 bg-blue-50 p-4">
+      {/* <div className="mb-4 bg-blue-50 p-4">
       <label className="block text-gray-700 font-bold mb-2"
         >Rates (Leave blank if not applicable)</label
       >
@@ -516,42 +620,42 @@ const CampaignAddForm = () => {
         onChange={handleChange}
       />
     </div>*/}
-    <div className="mb-4">
-      
-    <label
-        htmlFor="tag-list"
-        className="block text-gray-700 font-bold mb-2"
+      <div className="mb-4">
+
+        <label
+          htmlFor="tag-list"
+          className="block text-gray-700 font-bold mb-2"
         >Tags</label
-      >
-      <TagInput/>
+        >
+        <TagInput />
 
-    </div>
-    <div className="mb-4">
-      <label htmlFor="images" className="block text-gray-700 font-bold mb-2"
+      </div>
+      <div className="mb-4">
+        <label htmlFor="images" className="block text-gray-700 font-bold mb-2"
         >Images (Select up to 4 images)</label
-      >
-      
-      <input
-        type="file"
-        id="images"
-        name="images"
-        className="border rounded w-full py-2 px-3"
-        accept="image/*"
-        multiple
-        onChange={handleImageChange}
-        required
-      />
-    </div> 
+        >
 
-    <div>
-      <button
-        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
-        type="submit"
-      >
-        Add Campaign
-      </button>
-    </div>
-  </form>
+        <input
+          type="file"
+          id="images"
+          name="images"
+          className="border rounded w-full py-2 px-3"
+          accept="image/*"
+          multiple
+          onChange={handleImageChange}
+          required
+        />
+      </div>
+
+      <div>
+        <button
+          className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline"
+          type="submit"
+        >
+          Add Campaign
+        </button>
+      </div>
+    </form>
 }
 
 export default CampaignAddForm

@@ -8,11 +8,11 @@ const CampaignSchema = new Schema({
     },
     name: {
         type: String,
-        reequired: true,
+        required: true,
     },
     title: {
         type: String,
-        // reequired: true,
+
     },
     // type: {
     //     type: String,
@@ -21,6 +21,34 @@ const CampaignSchema = new Schema({
     description: {
         type: String,
     },
+    target_name: {
+        type: String
+    },
+    target_facebook: {
+        address: {
+            type: String
+        },
+        is_message_sent: {
+            type: Boolean
+        },
+    },
+    target_x: {
+        address: {
+            type: String
+        },
+        is_message_sent: {
+            type: Boolean
+        },
+    },
+    target_instagram: {
+        address: {
+            type: String
+        },
+        is_message_sent: {
+            type: Boolean
+        },
+    },
+
     // location: {
     //     street:{
     //         type: String

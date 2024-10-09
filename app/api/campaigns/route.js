@@ -49,6 +49,19 @@ export const POST = async (request) => {
             name: formData.get('name'),
             description: formData.get('description'),
             tags: formData.getAll('tags'),
+            target_name: formData.get('target_name'),
+            target_x: {
+                address: formData.get('target_x'),
+                is_message_sent: false,
+            },
+            target_facebook: {
+                address: formData.get('target_facebook'),
+                is_message_sent: false,
+            },
+            target_instagram: {
+                address: formData.get('target_instagram'),
+                is_message_sent: false,
+            },                                    
             // location: {
             //     street: formData.get('location.street'),
             //     city: formData.get('location.city'),
