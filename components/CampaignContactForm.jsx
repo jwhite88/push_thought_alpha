@@ -23,7 +23,7 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-6">Showing your support is easy</h3>
+      <h3 className="text-xl font-bold mb-6">Contact the Decision Maker</h3>
 
       <form >
         <div className='mb-4'>
