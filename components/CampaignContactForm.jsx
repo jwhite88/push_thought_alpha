@@ -23,13 +23,18 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-6">Contact the Decision Maker</h3>
+      <h3 className="text-xl font-bold mb-3">Contact the Decision Maker</h3>
+      <div className="mb-6">
+        {campaign.target_name}
 
+        {/* START HERE */}
+
+      </div>
       <form >
         <div className='mb-4'>
           <label
             className='block text-gray-700 text-sm font-bold mb-2'
-            htmlFor='name'
+            htmlFor='state'
           >
             Select State:
           </label>
