@@ -75,7 +75,7 @@ const CampaignPage = () => {
                 {/* <BookmarkButton campaign={campaign}/> */}
 
                 <CampaignContactForm campaign={campaign} setSocialData={setSocialData} />
-                <ShareButtons socialData={socialData} campaign={campaign} />
+
 
               </aside>
             </div>

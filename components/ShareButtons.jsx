@@ -27,13 +27,13 @@ const ShareButtons = ({ campaign, socialData }) => {
   return (
     <>
       <h3 className='text-xl font-bold text-center pt-2'>
-        Contact your Representatives
+        {/* Contact your Representatives */}
       </h3>
       <div className="flex gap-3 justify-center pb-5">
         <FacebookShareButton className='justify-center'
           url={shareUrl}
-          quote={campaign.name}
-          hashtag={`#pushthought`}
+          // quote={`${campaign.name} ${campaign.target_facebook.address}`}
+          hashtag={`${campaign.name} ${campaign.target_facebook.address} #pushthought`}
         >
           <FaFacebookF size={40} round={true} />
         </FacebookShareButton>
@@ -41,7 +41,8 @@ const ShareButtons = ({ campaign, socialData }) => {
         <TwitterShareButton className='justify-center'
           url={shareUrl}
           // title={campaign.name}
-          title={social.length > 0 && `${social[0]['Twitter']} ${campaign.name}`}
+          // title={social !== null && social.length > 0 && `${social[0]['Twitter']} ${campaign.name}`}
+          title={`${campaign.target_x.address} ${campaign.name}`}
           hashtags={[`pushthought`]}
         >
           <BsTwitterX size={40} round={true} />

@@ -1,4 +1,5 @@
 import OfficialCalc from "./OfficialCalc";
+import ShareButtons from "./ShareButtons";
 import { FaPaperPlane } from "react-icons/fa"
 import { useState } from "react";
 
@@ -26,8 +27,15 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
       <h3 className="text-xl font-bold mb-3">Contact the Decision Maker</h3>
       <div className="mb-6">
         {campaign.target_name}
+        {/* {campaign.target_facebook.address}
+        {campaign.target_x.address}
+        {campaign.target_instagram.address} */}
+
 
         {/* START HERE */}
+        <ShareButtons socialData={null} campaign={campaign} />
+
+
 
       </div>
       <form >
