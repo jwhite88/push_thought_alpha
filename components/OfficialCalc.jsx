@@ -38,7 +38,9 @@ const OfficialCalc = ({ campaign, state, setSocialData }) => {
             target_facebook: data[0][0].Facebook,
             Name: data[0][0].Name,
             name: data[1].name,
-            _id: data[1]._id
+            congress_title: data[0][0].MemberOfCongress,
+            _id: data[1]._id,
+
           },
           {
             target_x: data[0][1].Twitter,
@@ -46,6 +48,7 @@ const OfficialCalc = ({ campaign, state, setSocialData }) => {
             target_facebook: data[0][1].Facebook,
             Name: data[0][1].Name,
             name: data[1].name,
+            congress_title: data[0][0].MemberOfCongress,
             _id: data[1]._id
           }
         ]
@@ -60,7 +63,7 @@ const OfficialCalc = ({ campaign, state, setSocialData }) => {
 
   return (
     <div>
-      <h2>Senators:</h2>
+      {/* <h2>Senators:</h2> */}
       {/* {official.length > 0 ? (
         official.map((item) => {
           return (
@@ -76,7 +79,10 @@ const OfficialCalc = ({ campaign, state, setSocialData }) => {
           return (
             <>
               <div className="mb-6 flex items-center justify-between">
-                <p>{item.Name}</p>
+                <div className="flex flex-col">
+                  <p>{item.Name}</p>
+                  <p>{item.congress_title}</p>
+                </div>
                 <ShareButtons socialData={null} campaign={{ target_x: { address: item.target_x }, target_instagram: { address: item.target_instagram }, target_facebook: { address: item.target_facebook }, _id: item._id, name: item.name }} />
               </div>
             </>

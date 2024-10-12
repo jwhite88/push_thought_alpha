@@ -93,6 +93,17 @@ export const PUT = async (request, { params }) => {
             // type: formData.get('type'),
             name: formData.get('name'),
             description: formData.get('description'),
+            target_name: formData.get('target_name'),
+            target_title: formData.get('target_title'),
+            target_x: {
+                address: formData.get('target_x'),
+            },
+            target_facebook: {
+                address: formData.get('target_facebook'),
+            },       
+            target_instagram: {
+                address: formData.get('target_instagram'),
+            },         
             // location: {
             //     street: formData.get('location.street'),
             //     city: formData.get('location.city'),

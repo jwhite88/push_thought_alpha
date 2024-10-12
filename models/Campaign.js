@@ -24,6 +24,9 @@ const CampaignSchema = new Schema({
     target_name: {
         type: String
     },
+    target_title: {
+        type: String
+    },
     target_facebook: {
         address: {
             type: String

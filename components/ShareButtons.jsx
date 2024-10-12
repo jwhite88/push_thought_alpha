@@ -23,17 +23,19 @@ const ShareButtons = ({ campaign, socialData }) => {
 
   }, [socialData])
 
+  // Safely access target_facebook.address and target_x.address
+  const facebookAddress = campaign?.target_facebook?.address || '';
+  const twitterAddress = campaign?.target_x?.address || '';
 
   return (
     <>
       <h3 className='text-xl font-bold text-center pt-2'>
-        {/* Contact your Representatives */}
       </h3>
-      <div className="flex gap-3 justify-center pb-5">
+      <div className="flex gap-3 justify-center pb-1 pt-1">
         <FacebookShareButton className='justify-center'
           url={shareUrl}
           // quote={`${campaign.name} ${campaign.target_facebook.address}`}
-          hashtag={`${campaign.name} ${campaign.target_facebook.address} #pushthought`}
+          hashtag={`${campaign.name} ${facebookAddress} #pushthought`}
         >
           <FaFacebookF size={40} round={true} />
         </FacebookShareButton>
@@ -42,7 +44,7 @@ const ShareButtons = ({ campaign, socialData }) => {
           url={shareUrl}
           // title={campaign.name}
           // title={social !== null && social.length > 0 && `${social[0]['Twitter']} ${campaign.name}`}
-          title={`${campaign.target_x.address} ${campaign.name}`}
+          title={`${twitterAddress} ${campaign.name}`}
           hashtags={[`pushthought`]}
         >
           <BsTwitterX size={40} round={true} />

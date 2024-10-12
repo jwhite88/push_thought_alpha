@@ -35,7 +35,12 @@ const CampaignEditForm = () => {
       email: '',
       phone: '',
     },
+    // Initialize these objects to avoid undefined errors
+    target_x: { address: '' },
+    target_facebook: { address: '' },
+    target_instagram: { address: '' },
   })
+
 
   const [loading, setLoading] = useState(true)
 
@@ -180,7 +185,7 @@ const CampaignEditForm = () => {
           id="name"
           name="name"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg. Beautiful Apartment In Miami"
+          placeholder="eg. Full Name"
           required
           value={fields.name}
           onChange={handleChange}
@@ -201,6 +206,64 @@ const CampaignEditForm = () => {
           value={fields.description}
           onChange={handleChange}
         ></textarea>
+      </div>
+      <div className="mb-4 bg-blue-50 p-4">
+        <label className="block text-gray-700 font-bold mb-2">Decision Maker Information</label>
+
+        <label className="block text-gray-700 font mb-2">Name</label>
+        <input
+          type="text"
+          id="target_name"
+          name="target_name"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="Full Name"
+          value={fields.target_name}
+          onChange={handleChange}
+        />
+
+        <label className="block text-gray-700 font mb-2">Title</label>
+        <input
+          type="text"
+          id="target_title"
+          name="target_title"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="Title"
+          value={fields.target_title}
+          onChange={handleChange}
+        />
+
+        <label className="block text-gray-700 font mb-2">X</label>
+        <input
+          type="text"
+          id="target_x"
+          name="target_x"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="X address"
+          value={fields.target_x?.address || ''}
+          onChange={handleChange}
+        />
+
+        <label className="block text-gray-700 font mb-2">Facebook</label>
+        <input
+          type="text"
+          id="target_facebook"
+          name="target_facebook"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="facebook address"
+          value={fields.target_facebook?.address || ''}
+          onChange={handleChange}
+        />
+
+        <label className="block text-gray-700 font mb-2">Instagram</label>
+        <input
+          type="text"
+          id="target_instagram"
+          name="target_instagram"
+          className="border rounded w-full py-2 px-3 mb-2"
+          placeholder="Instagram address"
+          value={fields.target_instagram?.address || ''}
+          onChange={handleChange}
+        />
       </div>
 
       {/* <div className="mb-4 bg-blue-50 p-4">
@@ -274,7 +337,7 @@ const CampaignEditForm = () => {
             onChange={handleChange}
           />
         </div> */}
-        <div className="w-full sm:w-1/3 pl-2">
+        {/* <div className="w-full sm:w-1/3 pl-2">
           <label
             htmlFor="square_feet"
             className="block text-gray-700 font-bold mb-2"
@@ -289,7 +352,7 @@ const CampaignEditForm = () => {
             value={fields.square_feet}
             onChange={handleChange}
           />
-        </div>
+        </div> */}
 
       </div>
 
@@ -586,7 +649,7 @@ const CampaignEditForm = () => {
           Update Campaign
         </button>
       </div>
-    </form>
+    </form >
 }
 
 export default CampaignEditForm

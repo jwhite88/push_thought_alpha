@@ -29,7 +29,7 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
         <div className="mb-6 flex items-center justify-between">
           <div className="flex flex-col">
             {campaign.target_name}
-            <div >Secretary of Transportation</div>
+            <div >{campaign.target_title}</div>
           </div>
           <ShareButtons socialData={null} campaign={campaign} />
         </div>
