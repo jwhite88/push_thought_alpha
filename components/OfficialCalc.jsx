@@ -75,8 +75,10 @@ const OfficialCalc = ({ campaign, state, setSocialData }) => {
         newCombinedData.map((item) => {
           return (
             <>
-              <p>{item.Name} {item.target_facebook}</p>
-              <ShareButtons socialData={null} campaign={{ target_x: { address: item.target_x }, target_instagram: { address: item.target_instagram }, target_facebook: { address: item.target_facebook }, _id: item._id, name: item.name }} />
+              <div className="mb-6 flex items-center justify-between">
+                <p>{item.Name}</p>
+                <ShareButtons socialData={null} campaign={{ target_x: { address: item.target_x }, target_instagram: { address: item.target_instagram }, target_facebook: { address: item.target_facebook }, _id: item._id, name: item.name }} />
+              </div>
             </>
           )
         })

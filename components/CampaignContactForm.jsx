@@ -26,19 +26,19 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-3">Contact the Decision Maker</h3>
       <div className="mb-6">
-        {campaign.target_name}
+        <div className="mb-6 flex items-center justify-between">
+          <div className="flex flex-col">
+            {campaign.target_name}
+            <div >Secretary of Transportation</div>
+          </div>
+          <ShareButtons socialData={null} campaign={campaign} />
+        </div>
         {/* {campaign.target_facebook.address}
-        {campaign.target_x.address}
-        {campaign.target_instagram.address} */}
-
-
-        {/* START HERE */}
-        <ShareButtons socialData={null} campaign={campaign} />
-
-
-
+            {campaign.target_x.address}
+            {campaign.target_instagram.address} */}
       </div>
       <form >
+        <h3 className="text-xl font-bold mb-3">Contact Congress</h3>
         <div className='mb-4'>
           <label
             className='block text-gray-700 text-sm font-bold mb-2'
