@@ -3,6 +3,7 @@ import ShareButtons from "./ShareButtons";
 import { FaPaperPlane } from "react-icons/fa"
 import { useState } from "react";
 import EmbeddedTweet from '@/components/EmbeddedTweet';
+import EmbeddedFacebookPost from '@/components/EmbeddedFacebookPost';
 
 
 
@@ -24,11 +25,17 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
     // get the officials data
   }
 
+  const facebookPostUrl = 'https://www.facebook.com/matthew.acalin/posts/pfbid02EgXSng8Gzbh8nWxHdYqbuvyZJe5G4y9L3aXLSooznnQYVAz6nMzs6dg3fWtwDsiWl'; // Example post URL
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
       <h3 className="text-xl font-bold mb-3">1. Repost Activist Message</h3>
+
+
       <EmbeddedTweet tweetId="1845934474871427509" />
+      <EmbeddedFacebookPost postUrl={facebookPostUrl} />
+
+
       <h3 className="text-xl font-bold mb-3">2. Contact the Decision Maker</h3>
       <div className="mb-6">
         <div className="mb-6 flex items-center justify-between">

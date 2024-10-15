@@ -177,76 +177,95 @@ const CampaignAddForm = () => {
           onChange={handleChange}
         ></textarea>
       </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2"
-        >Decision Maker Name</label
-        >
-        <input
-          type="text"
-          id="target_name"
-          name="target_name"
-          className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...Pete Buttigieg"
-          required
-          value={fields.target_name}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2"
-        >Decision Maker Facebook</label
-        >
-        <input
-          type="text"
-          id="target_facebook"
-          name="target_facebook"
-          className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...@PeteButtigieg"
-          required
-          value={fields.target_facebook}
-          onChange={handleChange}
-        />
-        {error.facebook && (
-          <small style={{ color: 'red' }}>Invalid Facebook handle!</small>
-        )}
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2"
-        >Decision Maker X</label
-        >
-        <input
-          type="text"
-          id="target_x"
-          name="target_x"
-          className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...@PeteButtigieg"
-          required
-          value={fields.target_x}
-          onChange={handleChange}
-        />
-        {error.twitter && (
-          <small style={{ color: 'red' }}>Invalid X handle!</small>
-        )}
-      </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2"
-        >Decision Maker Instagram</label
-        >
-        <input
-          type="text"
-          id="target_instagram"
-          name="target_instagram"
-          className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...@PeteButtigieg"
-          required
-          value={fields.target_instagram}
-          onChange={handleChange}
-        />
-        {error.instagram && (
-          <small style={{ color: 'red' }}>Invalid Instagram handle!</small>
-        )}
-      </div>
 
+      <div className="mb-4 bg-blue-50 p-4">
+        <label className="block text-gray-700 font-bold mb-2">Decision Maker Information</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Full Name</label
+          >
+          <input
+            type="text"
+            id="target_name"
+            name="target_name"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="eg...Pete Buttigieg"
+            required
+            value={fields.target_name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Title</label
+          >
+          <input
+            type="text"
+            id="target_title"
+            name="target_title"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="eg...Pete Buttigieg"
+            required
+            value={fields.target_name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >X</label
+          >
+          <input
+            type="text"
+            id="target_x"
+            name="target_x"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="eg...@PeteButtigieg"
+            required
+            value={fields.target_x}
+            onChange={handleChange}
+          />
+          {error.twitter && (
+            <small style={{ color: 'red' }}>Invalid X handle!</small>
+          )}
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Facebook</label
+          >
+          <input
+            type="text"
+            id="target_facebook"
+            name="target_facebook"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="eg...PeteButtigieg"
+            required
+            value={fields.target_facebook}
+            onChange={handleChange}
+          />
+          {error.facebook && (
+            <small style={{ color: 'red' }}>Invalid Facebook handle!</small>
+          )}
+        </div>
+
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Instagram</label
+          >
+          <input
+            type="text"
+            id="target_instagram"
+            name="target_instagram"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="eg...@PeteButtigieg"
+            required
+            value={fields.target_instagram}
+            onChange={handleChange}
+          />
+          {error.instagram && (
+            <small style={{ color: 'red' }}>Invalid Instagram handle!</small>
+          )}
+        </div>
+      </div>
       {/* <div className="mb-4 bg-blue-50 p-4">
       <label className="block text-gray-700 font-bold mb-2">Location</label>
       <input
