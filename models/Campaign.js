@@ -51,6 +51,15 @@ const CampaignSchema = new Schema({
             type: Boolean
         },
     },
+    x_repost_id: {
+        type: String
+    },
+    facebook_repost_id: {
+        type: String
+    },
+    instagram_repost_id: {
+        type: String
+    },
 
     // location: {
     //     street:{

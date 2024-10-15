@@ -238,7 +238,7 @@ const CampaignEditForm = () => {
           id="target_x"
           name="target_x"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...@PeteButtigiegz"
+          placeholder="eg...@PeteButtigieg"
           value={fields.target_x?.address || ''}
           onChange={handleChange}
         />
