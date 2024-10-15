@@ -204,7 +204,7 @@ const CampaignAddForm = () => {
             id="target_title"
             name="target_title"
             className="border rounded w-full py-2 px-3 mb-2"
-            placeholder="eg...Pete Buttigieg"
+            placeholder="eg...Secretary of Transportation"
             required
             value={fields.target_name}
             onChange={handleChange}

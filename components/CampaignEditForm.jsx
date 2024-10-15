@@ -210,7 +210,7 @@ const CampaignEditForm = () => {
       <div className="mb-4 bg-blue-50 p-4">
         <label className="block text-gray-700 font-bold mb-2">Decision Maker Information</label>
 
-        <label className="block text-gray-700 font mb-2">Name</label>
+        <label className="block text-gray-700 font mb-2">Full Name</label>
         <input
           type="text"
           id="target_name"
@@ -227,7 +227,7 @@ const CampaignEditForm = () => {
           id="target_title"
           name="target_title"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="Title"
+          placeholder="eg...Secretary of Transportation"
           value={fields.target_title}
           onChange={handleChange}
         />
@@ -238,7 +238,7 @@ const CampaignEditForm = () => {
           id="target_x"
           name="target_x"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="X address"
+          placeholder="eg...@PeteButtigiegz"
           value={fields.target_x?.address || ''}
           onChange={handleChange}
         />
@@ -249,7 +249,7 @@ const CampaignEditForm = () => {
           id="target_facebook"
           name="target_facebook"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="facebook address"
+          placeholder="eg...PeteButtigieg"
           value={fields.target_facebook?.address || ''}
           onChange={handleChange}
         />
@@ -260,7 +260,7 @@ const CampaignEditForm = () => {
           id="target_instagram"
           name="target_instagram"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="Instagram address"
+          placeholder="eg...@PeteButtigieg"
           value={fields.target_instagram?.address || ''}
           onChange={handleChange}
         />
