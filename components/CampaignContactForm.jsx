@@ -2,6 +2,9 @@ import OfficialCalc from "./OfficialCalc";
 import ShareButtons from "./ShareButtons";
 import { FaPaperPlane } from "react-icons/fa"
 import { useState } from "react";
+import EmbeddedTweet from '@/components/EmbeddedTweet';
+
+
 
 const CampaignContactForm = ({ campaign, setSocialData }) => {
 
@@ -24,12 +27,14 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-3">Contact the Decision Maker</h3>
+      <h3 className="text-xl font-bold mb-3">1. Repost Activist Message</h3>
+      <EmbeddedTweet tweetId="1845934474871427509" />
+      <h3 className="text-xl font-bold mb-3">2. Contact the Decision Maker</h3>
       <div className="mb-6">
         <div className="mb-6 flex items-center justify-between">
           <div className="flex flex-col">
             {campaign.target_name}
-            <div >{campaign.target_title}</div>
+            <div className="mr-5">{campaign.target_title}</div>
           </div>
           <ShareButtons socialData={null} campaign={campaign} />
         </div>
@@ -38,7 +43,7 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
             {campaign.target_instagram.address} */}
       </div>
       <form >
-        <h3 className="text-xl font-bold mb-3">Contact Congress</h3>
+        <h3 className="text-xl font-bold mb-3">3. Contact Congress</h3>
         <div className='mb-4'>
           <label
             className='block text-gray-700 text-sm font-bold mb-2'

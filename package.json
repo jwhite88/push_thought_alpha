@@ -21,6 +21,7 @@
     "react-share": "^5.1.0",
     "react-spinners": "^0.14.1",
     "react-toastify": "^10.0.5",
+    "react-twitter-embed": "^4.0.4",
     "styled-jsx": "^5.1.6"
   },
   "devDependencies": {
