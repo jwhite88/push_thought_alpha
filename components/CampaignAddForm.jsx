@@ -206,7 +206,7 @@ const CampaignAddForm = () => {
             className="border rounded w-full py-2 px-3 mb-2"
             placeholder="eg...Secretary of Transportation"
             required
-            value={fields.target_name}
+            value={fields.target_description}
             onChange={handleChange}
           />
         </div>
@@ -264,6 +264,51 @@ const CampaignAddForm = () => {
           {error.instagram && (
             <small style={{ color: 'red' }}>Invalid Instagram handle!</small>
           )}
+        </div>
+      </div>
+      <div className="mb-4 bg-blue-50 p-4">
+        <label className="block text-gray-700 font-bold mb-2">Messages for easy repost</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >X post ID</label
+          >
+          <input
+            type="text"
+            id="repost_x"
+            name="repost_x"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.x_repost_id}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Facebook Post ID</label
+          >
+          <input
+            type="text"
+            id="repost_facebook"
+            name="repost_facebook"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.facebook_repost_id}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Instagram Post ID</label
+          >
+          <input
+            type="text"
+            id="repost_instagram"
+            name="repost_instagram"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.instagram_repost_id}
+            onChange={handleChange}
+          />
         </div>
       </div>
       {/* <div className="mb-4 bg-blue-50 p-4">

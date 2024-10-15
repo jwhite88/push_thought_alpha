@@ -15,7 +15,7 @@ const CampaignDetails = ({ campaign }) => {
         className="bg-white p-6 rounded-lg shadow-md text-center md:text-center"
       >
         <h1 className="text-3xl font-bold mb-4">{campaign.name}</h1>
-        <p className="text-gray-500 mb-4 text-center">
+        <p className="text-gray-500 mb-4 text-center whitespace-pre-line">
           {campaign.description}
         </p>
         <div className='campaign-tags flex flex-wrap mx-auto bg-white'>
