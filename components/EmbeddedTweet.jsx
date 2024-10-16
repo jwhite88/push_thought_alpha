@@ -10,9 +10,6 @@ const EmbeddedTweet = ({ tweetId }) => {
 
     return (
         <div>
-            <TwitterTweetEmbed tweetId={tweetId} />
-
-            {/* <XEmbed url="https://twitter.com/PixelAndBracket/status/1356633038717923333" width={325} /> */}
 
             {/* Button to retweet */}
             <div
@@ -41,6 +38,12 @@ const EmbeddedTweet = ({ tweetId }) => {
                     Repost Message
                 </button>
             </div>
+
+            <TwitterTweetEmbed tweetId={tweetId} />
+
+            {/* <XEmbed url="https://twitter.com/PixelAndBracket/status/1356633038717923333" width={325} /> */}
+
+
         </div>
     );
 };

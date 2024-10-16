@@ -6,9 +6,17 @@ import EmbeddedTweet from '@/components/EmbeddedTweet';
 import EmbeddedFacebookPost from '@/components/EmbeddedFacebookPost';
 import { useEffect } from "react";
 import { FacebookEmbed } from 'react-social-media-embed';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
+import { useRouter } from 'next/router';
 
+const SocialMediaTabs = ({ campaign }) => {
+  const [activeTab, setActiveTab] = useState('Twitter');
+  const router = useRouter();
+
+}
 
 const CampaignContactForm = ({ campaign, setSocialData }) => {
 
@@ -46,36 +54,68 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
       <h3 className="text-xl font-bold mb-3">1. Repost Activist Messages</h3>
 
 
-      <EmbeddedTweet tweetId={campaign && campaign.x_repost_id} />
-      {/* <EmbeddedFacebookPost postUrl={facebookPostUrl} /> */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}>
-        <FacebookEmbed
-          url="https://www.facebook.com/andrewismusic/posts/451971596293956"
-          width={334}
-        />
 
-      </div>
-      {/* Button to share the post */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginTop: '10px',
-      }}>
-        <button onClick={handleShare}
-          style={{
-            padding: '10px 15px',
-            backgroundColor: '#4267B2', // Facebook blue color
-            color: 'white',
-            border: 'none',
-            borderRadius: '5px',
-            cursor: 'pointer',
+      <Tabs>
+        <TabList>
+          <Tab>X</Tab>
+          <Tab>Facebook</Tab>
+        </TabList>
+
+        <TabPanel>
+
+          <EmbeddedTweet tweetId={campaign && campaign.x_repost_id} />
+        </TabPanel>
+        <TabPanel>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
           }}>
-          Share Post
-        </button>
-      </div>
+            <div style={{
+              display: 'flex',
+              flexDirection: 'column', // Stack elements vertically
+              alignItems: 'center',    // Center elements horizontally
+              justifyContent: 'center', // Center elements vertically within the div
+            }}>
+              <div>
+                <button onClick={handleShare}
+                  style={{
+                    padding: '10px 15px',
+                    backgroundColor: '#1DA1F2', // Facebook blue color
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginBottom: '10px', // Add some space below the button
+                  }}>
+                  Repost Message
+                </button>
+              </div>
+              <div>
+                <FacebookEmbed
+                  url={campaign.facebook_repost_id}
+                  width={350}
+                />
+              </div>
+            </div>
+          </div>
+          {/* Button to share the post */}
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            marginTop: '10px',
+            marginBottom: '10px'
+          }}>
+
+          </div>
+
+        </TabPanel>
+      </Tabs>
+
+
+
+
+
+
 
 
 
