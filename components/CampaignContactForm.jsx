@@ -4,6 +4,8 @@ import { FaPaperPlane } from "react-icons/fa"
 import { useState } from "react";
 import EmbeddedTweet from '@/components/EmbeddedTweet';
 import EmbeddedFacebookPost from '@/components/EmbeddedFacebookPost';
+import { useEffect } from "react";
+
 
 
 
@@ -11,6 +13,13 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
   const [selectedOption, setSelectedOption] = useState(""); // Default to an empty value
   const [officials, setOfficials] = useState([])
+
+  useEffect(() => {
+
+    console.log("campaign", campaign)
+
+  }, [])
+
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -24,15 +33,15 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
     // get the officials data
   }
-
+  // https://www.facebook.com/bhammer705/posts/10231903458228007:555873576855554
   const facebookPostUrl = 'https://www.facebook.com/matthew.acalin/posts/pfbid02EgXSng8Gzbh8nWxHdYqbuvyZJe5G4y9L3aXLSooznnQYVAz6nMzs6dg3fWtwDsiWl'; // Example post URL
-
+  // https://www.facebook.com/chris.burke.965/posts/pfbid0qUWebGJCWy1oHWWJwPkZ81PeCcbiUMJQ2xNjE2P4gqCFh3WtLp7qhxWvTvpn3BuRl
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h3 className="text-xl font-bold mb-3">1. Repost Activist Message</h3>
+      <h3 className="text-xl font-bold mb-3">1. Repost Activist Messages</h3>
 
 
-      <EmbeddedTweet tweetId="1845934474871427509" />
+      <EmbeddedTweet tweetId={campaign && campaign.x_repost_id} />
       <EmbeddedFacebookPost postUrl={facebookPostUrl} />
 
 

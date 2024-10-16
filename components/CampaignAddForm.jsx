@@ -1,6 +1,8 @@
 'use client'
+import "../assets/styles/radix.css"
 import { useState, useEffect } from "react"
 import TagInput from "./TagInput"
+import * as HoverCard from "@radix-ui/react-hover-card";
 
 const CampaignAddForm = () => {
   const [mounted, setMounted] = useState(false)
@@ -270,7 +272,7 @@ const CampaignAddForm = () => {
         <label className="block text-gray-700 font-bold mb-2">Messages for easy repost</label>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2"
-          >X post ID</label
+          >X Post ID</label
           >
           <input
             type="text"
@@ -284,7 +286,7 @@ const CampaignAddForm = () => {
         </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2"
-          >Facebook Post ID</label
+          >Facebook Full Post URL</label
           >
           <input
             type="text"
@@ -296,6 +298,77 @@ const CampaignAddForm = () => {
             onChange={handleChange}
           />
         </div>
+
+        {/* <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Facebook Full Post URL</label
+          >
+          <input
+            type="text"
+            id="repost_facebook"
+            name="repost_facebook"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.facebook_repost_id}
+            onChange={handleChange}
+          />
+        </div> */}
+
+        <HoverCard.Root>
+          <HoverCard.Trigger asChild>
+            <div className="mb-4">
+              <label className="block text-gray-700 font-bold mb-2"
+              >Facebook Full Post URL</label
+              >
+              <input
+                type="text"
+                id="repost_facebook"
+                name="repost_facebook"
+                className="border rounded w-full py-2 px-3 mb-2"
+                placeholder="copy ID from url of post"
+                value={fields.facebook_repost_id}
+                onChange={handleChange}
+              />
+            </div>
+          </HoverCard.Trigger>
+          <HoverCard.Portal>
+            <HoverCard.Content className="HoverCardContent" sideOffset={5}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                <img
+                  className="Image large"
+                  src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
+                  alt="Radix UI"
+                />
+                <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
+                  <div>
+                    <div className="Text bold">Radix</div>
+                    <div className="Text faded">@radix_ui</div>
+                  </div>
+                  <div className="Text">
+                    Components, icons, colors, and templates for building
+                    high-quality, accessible UI. Free and open-source.
+                  </div>
+                  <div style={{ display: "flex", gap: 15 }}>
+                    <div style={{ display: "flex", gap: 5 }}>
+                      <div className="Text bold">0</div>{" "}
+                      <div className="Text faded">Following</div>
+                    </div>
+                    <div style={{ display: "flex", gap: 5 }}>
+                      <div className="Text bold">2,900</div>{" "}
+                      <div className="Text faded">Followers</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <HoverCard.Arrow className="HoverCardArrow" />
+            </HoverCard.Content>
+          </HoverCard.Portal>
+        </HoverCard.Root>
+
+
+
+
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2"
           >Instagram Post ID</label

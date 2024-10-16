@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .campaign-tags {
     display: flex;
     flex-direction: row;
@@ -47,3 +48,5 @@
     max-height: calc(2 * 50px); /* 2 rows of 40px height */
     line-height: 40px; /* Ensure items are aligned vertically */
 }
+
+

@@ -62,9 +62,9 @@ export const POST = async (request) => {
                 address: formData.get('target_instagram'),
                 is_message_sent: false,
             },               
-            x_repost_id: formData.get('repost_x'),
-            facebook_repost_id: formData.get('repost_facebook'),
-            instagram_repost_id: formData.get('repost_instagram'),                        
+            x_repost_id: formData.get('x_repost_id'),
+            facebook_repost_id: formData.get('facebook_repost_id'),
+            instagram_repost_id: formData.get('instagram_repost_id'),                        
             // location: {
             //     street: formData.get('location.street'),
             //     city: formData.get('location.city'),

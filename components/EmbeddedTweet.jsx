@@ -1,5 +1,6 @@
 // components/EmbeddedTweet.js
 import { TwitterTweetEmbed } from 'react-twitter-embed';
+import { XEmbed } from 'react-social-media-embed';
 
 const EmbeddedTweet = ({ tweetId }) => {
     const handleRetweet = () => {
@@ -10,6 +11,9 @@ const EmbeddedTweet = ({ tweetId }) => {
     return (
         <div>
             <TwitterTweetEmbed tweetId={tweetId} />
+
+            {/* <XEmbed url="https://twitter.com/PixelAndBracket/status/1356633038717923333" width={325} /> */}
+
             {/* Button to retweet */}
             <div
                 style={{

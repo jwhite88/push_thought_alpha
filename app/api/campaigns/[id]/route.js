@@ -104,9 +104,9 @@ export const PUT = async (request, { params }) => {
             target_instagram: {
                 address: formData.get('target_instagram'),
             },      
-            x_repost_id: formData.get('repost_x'),
-            facebook_repost_id: formData.get('repost_facebook'),
-            instagram_repost_id: formData.get('repost_instagram'),   
+            x_repost_id: formData.get('x_repost_id'),
+            facebook_repost_id: formData.get('facebook_repost_id'),
+            instagram_repost_id: formData.get('instagram_repost_id'),   
             // location: {
             //     street: formData.get('location.street'),
             //     city: formData.get('location.city'),

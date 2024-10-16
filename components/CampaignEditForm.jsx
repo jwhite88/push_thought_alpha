@@ -39,6 +39,9 @@ const CampaignEditForm = () => {
     target_x: { address: '' },
     target_facebook: { address: '' },
     target_instagram: { address: '' },
+    x_repost_id: '',
+    facebook_repost_id: '',
+    instagram_repost_id: '',
   })
 
 
@@ -75,6 +78,8 @@ const CampaignEditForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target
+
+    console.log(`${name} & ${value}`)
 
     // Check if nested property
     if (name.includes('.')) {
@@ -185,7 +190,6 @@ const CampaignEditForm = () => {
           id="name"
           name="name"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg. Full Name"
           required
           value={fields.name}
           onChange={handleChange}
@@ -202,7 +206,6 @@ const CampaignEditForm = () => {
           name="description"
           className="border rounded w-full py-2 px-3"
           rows="4"
-          placeholder="Add an optional description of your campaign"
           value={fields.description}
           onChange={handleChange}
         ></textarea>
@@ -216,7 +219,6 @@ const CampaignEditForm = () => {
           id="target_name"
           name="target_name"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="Full Name"
           value={fields.target_name}
           onChange={handleChange}
         />
@@ -227,7 +229,6 @@ const CampaignEditForm = () => {
           id="target_title"
           name="target_title"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...Secretary of Transportation"
           value={fields.target_title}
           onChange={handleChange}
         />
@@ -238,8 +239,7 @@ const CampaignEditForm = () => {
           id="target_x"
           name="target_x"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...@PeteButtigieg"
-          value={fields.target_x?.address || ''}
+          value={fields.target_x?.address}
           onChange={handleChange}
         />
 
@@ -249,8 +249,7 @@ const CampaignEditForm = () => {
           id="target_facebook"
           name="target_facebook"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...PeteButtigieg"
-          value={fields.target_facebook?.address || ''}
+          value={fields.target_facebook?.address}
           onChange={handleChange}
         />
 
@@ -260,41 +259,37 @@ const CampaignEditForm = () => {
           id="target_instagram"
           name="target_instagram"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="eg...@PeteButtigieg"
-          value={fields.target_instagram?.address || ''}
+          value={fields.target_instagram?.address}
           onChange={handleChange}
         />
       </div>
       <div className="mb-4 bg-blue-50 p-4">
-        <label className="block text-gray-700 font-bold mb-2">Messages for easy repost</label>
+        <label className="block text-gray-700 font-bold mb-2">Messages for easy reposting</label>
         <label className="block text-gray-700 font mb-2">X Post ID</label>
         <input
           type="text"
-          id="repost_x"
-          name="repost_x"
+          id="x_repost_id"
+          name="x_repost_id"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="copy ID from url of post"
-          value={fields.x_repost_id || ''}
+          value={fields.x_repost_id}
           onChange={handleChange}
         />
-        <label className="block text-gray-700 font mb-2">Facebook Post ID</label>
+        <label className="block text-gray-700 font mb-2">Full Facebook URL</label>
         <input
           type="text"
-          id="repost_facebook"
-          name="repost_facebook"
+          id="facebook_repost_id"
+          name="facebook_repost_id"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="copy ID from url of post"
-          value={fields.facebook_repost_id || ''}
+          value={fields.facebook_repost_id}
           onChange={handleChange}
         />
         <label className="block text-gray-700 font mb-2">Instagram Post ID</label>
         <input
           type="text"
-          id="repost_instagram"
-          name="repost_instagram"
+          id="instagram_repost_id"
+          name="instagram_repost_id"
           className="border rounded w-full py-2 px-3 mb-2"
-          placeholder="copy ID from url of post"
-          value={fields.instagram_repost_id || ''}
+          value={fields.instagram_repost_id}
           onChange={handleChange}
         />
       </div>
