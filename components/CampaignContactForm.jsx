@@ -5,6 +5,7 @@ import { useState } from "react";
 import EmbeddedTweet from '@/components/EmbeddedTweet';
 import EmbeddedFacebookPost from '@/components/EmbeddedFacebookPost';
 import { useEffect } from "react";
+import { FacebookEmbed } from 'react-social-media-embed';
 
 
 
@@ -20,6 +21,10 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
   }, [])
 
+  const handleShare = () => {
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(campaign.facebook_repost_id)}`;
+    window.open(shareUrl, '_blank');
+  };
 
   const handleChange = (event) => {
     setSelectedOption(event.target.value);
@@ -42,7 +47,36 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
 
 
       <EmbeddedTweet tweetId={campaign && campaign.x_repost_id} />
-      <EmbeddedFacebookPost postUrl={facebookPostUrl} />
+      {/* <EmbeddedFacebookPost postUrl={facebookPostUrl} /> */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+      }}>
+        <FacebookEmbed
+          url="https://www.facebook.com/andrewismusic/posts/451971596293956"
+          width={334}
+        />
+
+      </div>
+      {/* Button to share the post */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginTop: '10px',
+      }}>
+        <button onClick={handleShare}
+          style={{
+            padding: '10px 15px',
+            backgroundColor: '#4267B2', // Facebook blue color
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}>
+          Share Post
+        </button>
+      </div>
+
 
 
       <h3 className="text-xl font-bold mb-3">2. Contact the Decision Maker</h3>
