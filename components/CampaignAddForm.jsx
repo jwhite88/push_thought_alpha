@@ -210,6 +210,9 @@ const CampaignAddForm = () => {
 
       <div className="mb-4 bg-blue-50 p-4">
         <label className="block text-gray-700 font-bold mb-2">Messages for easy repost</label>
+        <div className='mb-2 mt-0'>
+          Go to your post and take the last part of the url
+        </div>
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2"
           >X Post ID</label
