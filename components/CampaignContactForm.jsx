@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { FacebookEmbed } from 'react-social-media-embed';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import green_check from '@/assets/images/green_check.png'
 
 
 import { useRouter } from 'next/router';
@@ -51,10 +52,12 @@ const CampaignContactForm = ({ campaign, setSocialData }) => {
   // https://www.facebook.com/chris.burke.965/posts/pfbid0qUWebGJCWy1oHWWJwPkZ81PeCcbiUMJQ2xNjE2P4gqCFh3WtLp7qhxWvTvpn3BuRl
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
+
+      <div className='text-2xl mb-5 font-extrabold' style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        Messages sent: 1,300
+      </div>
+
       <h3 className="text-xl font-bold mb-3">1. Repost Activist Messages</h3>
-
-
-
       <Tabs>
         <TabList>
           <Tab>X</Tab>

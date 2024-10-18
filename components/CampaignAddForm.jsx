@@ -148,7 +148,7 @@ const CampaignAddForm = () => {
         Add Messaging Campaign
       </h2>
 
-      <div className="mb-4">
+      <div className="mb-0">
         <label className="block text-gray-700 font-bold mb-2"
         >Title</label
         >
@@ -163,7 +163,17 @@ const CampaignAddForm = () => {
           onChange={handleChange}
         />
       </div>
-      <div className="mb-4">
+      <div className='mb-10' style={{ fontStyle: 'italic', color: 'gray' }}>
+        Start with an action verb
+        Examples: “Stop, Save, Ban, Grant, Oppose, etc.”
+
+        Name specific places, organizations, or people
+        Example: “Raise the minimum wage in Minneapolis to $15 an hour.”
+
+        Use longer titles to add key details
+        Example: “Improve the diagnosis of secondary breast cancer — let us have scans!”
+      </div>
+      <div className="mb-0">
         <label
           htmlFor="description"
           className="block text-gray-700 font-bold mb-2"
@@ -174,10 +184,145 @@ const CampaignAddForm = () => {
           name="description"
           className="border rounded w-full py-2 px-3"
           rows="4"
-          placeholder="Add an description of your messaging campaign"
+          placeholder="Add a description for your messaging campaign"
           value={fields.description}
           onChange={handleChange}
         ></textarea>
+      </div>
+      <div className='mb-10' style={{ fontStyle: 'italic', color: 'gray' }}>
+        <p>
+          Start from scratch or use our recommended structure below. You can always edit your messaging campaign.
+          Our activist experts recommend this structure:
+        </p>
+        <p>
+          Paragraph 1: Who is impacted?
+          How are people concretely affected by the problem?
+        </p>
+        <p>
+          Paragraph 2: What is at stake?
+          What will it mean if things change or stay the same?
+        </p>
+        <p>
+          Paragraph 3: Why is now the time to act?
+          Summarize and stress the importance of immediate action.
+        </p>
+      </div>
+
+      <div className="mb-4 bg-blue-50 p-4">
+        <label className="block text-gray-700 font-bold mb-2">Messages for easy repost</label>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >X Post ID</label
+          >
+          <input
+            type="text"
+            id="repost_x"
+            name="repost_x"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.x_repost_id}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Facebook Full Post URL</label
+          >
+          <input
+            type="text"
+            id="repost_facebook"
+            name="repost_facebook"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.facebook_repost_id}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Facebook Full Post URL</label
+          >
+          <input
+            type="text"
+            id="repost_facebook"
+            name="repost_facebook"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.facebook_repost_id}
+            onChange={handleChange}
+          />
+        </div> */}
+
+        <HoverCard.Root>
+          <HoverCard.Trigger asChild>
+            <div className="mb-4">
+              <label className="block text-gray-700 font-bold mb-2"
+              >Facebook Full Post URL</label
+              >
+              <input
+                type="text"
+                id="repost_facebook"
+                name="repost_facebook"
+                className="border rounded w-full py-2 px-3 mb-2"
+                placeholder="copy ID from url of post"
+                value={fields.facebook_repost_id}
+                onChange={handleChange}
+              />
+            </div>
+          </HoverCard.Trigger>
+          <HoverCard.Portal>
+            <HoverCard.Content className="HoverCardContent" sideOffset={5}>
+              <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                {/* <img
+                  className="Image large"
+                  src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
+                  alt="Radix UI"
+                /> */}
+                <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
+                  {/* <div>
+                    <div className="Text bold">Radix</div>
+                    <div className="Text faded">@radix_ui</div>
+                  </div> */}
+                  <div className="Text">
+                    Components, icons, colors, and templates for building
+                    high-quality, accessible UI. Free and open-source.
+                  </div>
+                  {/* <div style={{ display: "flex", gap: 15 }}>
+                    <div style={{ display: "flex", gap: 5 }}>
+                      <div className="Text bold">0</div>{" "}
+                      <div className="Text faded">Following</div>
+                    </div>
+                    <div style={{ display: "flex", gap: 5 }}>
+                      <div className="Text bold">2,900</div>{" "}
+                      <div className="Text faded">Followers</div>
+                    </div>
+                  </div> */}
+                </div>
+              </div>
+
+              <HoverCard.Arrow className="HoverCardArrow" />
+            </HoverCard.Content>
+          </HoverCard.Portal>
+        </HoverCard.Root>
+
+
+
+
+        <div className="mb-4">
+          <label className="block text-gray-700 font-bold mb-2"
+          >Instagram Post ID</label
+          >
+          <input
+            type="text"
+            id="repost_instagram"
+            name="repost_instagram"
+            className="border rounded w-full py-2 px-3 mb-2"
+            placeholder="copy ID from url of post"
+            value={fields.instagram_repost_id}
+            onChange={handleChange}
+          />
+        </div>
       </div>
 
       <div className="mb-4 bg-blue-50 p-4">
@@ -266,122 +411,6 @@ const CampaignAddForm = () => {
           {error.instagram && (
             <small style={{ color: 'red' }}>Invalid Instagram handle!</small>
           )}
-        </div>
-      </div>
-      <div className="mb-4 bg-blue-50 p-4">
-        <label className="block text-gray-700 font-bold mb-2">Messages for easy repost</label>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2"
-          >X Post ID</label
-          >
-          <input
-            type="text"
-            id="repost_x"
-            name="repost_x"
-            className="border rounded w-full py-2 px-3 mb-2"
-            placeholder="copy ID from url of post"
-            value={fields.x_repost_id}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2"
-          >Facebook Full Post URL</label
-          >
-          <input
-            type="text"
-            id="repost_facebook"
-            name="repost_facebook"
-            className="border rounded w-full py-2 px-3 mb-2"
-            placeholder="copy ID from url of post"
-            value={fields.facebook_repost_id}
-            onChange={handleChange}
-          />
-        </div>
-
-        {/* <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2"
-          >Facebook Full Post URL</label
-          >
-          <input
-            type="text"
-            id="repost_facebook"
-            name="repost_facebook"
-            className="border rounded w-full py-2 px-3 mb-2"
-            placeholder="copy ID from url of post"
-            value={fields.facebook_repost_id}
-            onChange={handleChange}
-          />
-        </div> */}
-
-        <HoverCard.Root>
-          <HoverCard.Trigger asChild>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2"
-              >Facebook Full Post URL</label
-              >
-              <input
-                type="text"
-                id="repost_facebook"
-                name="repost_facebook"
-                className="border rounded w-full py-2 px-3 mb-2"
-                placeholder="copy ID from url of post"
-                value={fields.facebook_repost_id}
-                onChange={handleChange}
-              />
-            </div>
-          </HoverCard.Trigger>
-          <HoverCard.Portal>
-            <HoverCard.Content className="HoverCardContent" sideOffset={5}>
-              <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
-                <img
-                  className="Image large"
-                  src="https://pbs.twimg.com/profile_images/1337055608613253126/r_eiMp2H_400x400.png"
-                  alt="Radix UI"
-                />
-                <div style={{ display: "flex", flexDirection: "column", gap: 15 }}>
-                  <div>
-                    <div className="Text bold">Radix</div>
-                    <div className="Text faded">@radix_ui</div>
-                  </div>
-                  <div className="Text">
-                    Components, icons, colors, and templates for building
-                    high-quality, accessible UI. Free and open-source.
-                  </div>
-                  <div style={{ display: "flex", gap: 15 }}>
-                    <div style={{ display: "flex", gap: 5 }}>
-                      <div className="Text bold">0</div>{" "}
-                      <div className="Text faded">Following</div>
-                    </div>
-                    <div style={{ display: "flex", gap: 5 }}>
-                      <div className="Text bold">2,900</div>{" "}
-                      <div className="Text faded">Followers</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <HoverCard.Arrow className="HoverCardArrow" />
-            </HoverCard.Content>
-          </HoverCard.Portal>
-        </HoverCard.Root>
-
-
-
-
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2"
-          >Instagram Post ID</label
-          >
-          <input
-            type="text"
-            id="repost_instagram"
-            name="repost_instagram"
-            className="border rounded w-full py-2 px-3 mb-2"
-            placeholder="copy ID from url of post"
-            value={fields.instagram_repost_id}
-            onChange={handleChange}
-          />
         </div>
       </div>
       {/* <div className="mb-4 bg-blue-50 p-4">
@@ -792,7 +821,7 @@ const CampaignAddForm = () => {
           Add Campaign
         </button>
       </div>
-    </form>
+    </form >
 }
 
 export default CampaignAddForm
