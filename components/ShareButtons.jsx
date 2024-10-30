@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Image from 'next/image';
 import {
   FacebookShareButton,
   TwitterShareButton,
@@ -9,6 +10,7 @@ import {
   WhatsappIcon,
   EmailIcon,
 } from 'react-share'
+import ToastInfo from './ToastInfo';
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import { ImCheckmark } from "react-icons/im";
 import { BsTwitterX } from "react-icons/bs";
@@ -17,35 +19,42 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import clsx from 'clsx';
 import "../assets/styles/checkmarks.css"
+import greenCheck from "../assets/images/green_check.png"
 
 const ShareButtons = ({ campaign, socialData }) => {
   const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/campaigns/${campaign._id}`
   const [social, setSocial] = useState([])
   const [isShowingX, setIsShowingX] = useState(true)
   const [isShowingFB, setIsShowingFB] = useState(false)
-  const [messageSent, setMessageSent] = useState("No")
+  const [messageSent, setMessageSent] = useState("")
 
-  const ToastInfo = ({ messageSent, setMessageSent }) => {
-    const onMessageChange = (event) => {
-      console.log("For sent msg", event.target.value)
-      setMessageSent(event.target.value)
-    }
 
-    return (
-      <div>
-        <h2 style={{ fontSize: '20pt' }} >Did you send your message? Confirm below to be counted in our metrics.</h2>
-        <div>
-          <label>
-            <span style={{ display: "inline-block", }}>Yes</span> <input type="radio" style={{ transform: "scale(3.5)", position: "relative", bottom: "10px", left: "20px", display: "inline-block" }} name="isShared" value={"Yes"} onChange={onMessageChange} /> <br />
-          </label>
-          <label>
-            <span style={{ display: "inline-block" }}>No</span>  <input type="radio" style={{ transform: "scale(3.5)", position: "relative", bottom: "10px", left: "39px", display: "inline-block" }} name="isShared" value={"No"} onChange={onMessageChange} />
-          </label>
-          {/* <button onClick={console.log("button firing")}>Submit</button> */}
-        </div>
-      </div>
-    )
-  }
+  // const ToastInfo = ({ setMessageSent }) => {
+  //   const [toastShared, setToastShared] = useState("")
+  //   const onMessageChange = (event) => {
+  //     let message = event.target.value
+  //     console.log("toastShared: ", toastShared)
+  //     console.log("For sent msg", event.target.value)
+  //     setToastShared(message)
+  //     // setMessageSent(message)
+  //     myMethod(message)
+  //   }
+
+  //   return (
+  //     <div>
+  //       <h2 style={{ fontSize: '20pt' }} >Did you send your message? Confirm below to be counted in our metrics.</h2>
+  //       <div>
+  //         <label>
+  //           <span style={{ display: "inline-block", }}>Yes</span> <input type="radio" style={{ transform: "scale(3.5)", position: "relative", bottom: "10px", left: "20px", display: "inline-block" }} name="isShared" value={"Yes"} onChange={onMessageChange} /> <br />
+  //         </label>
+  //         <label>
+  //           <span style={{ display: "inline-block" }}>No</span>  <input type="radio" style={{ transform: "scale(3.5)", position: "relative", bottom: "10px", left: "39px", display: "inline-block" }} name="isShared" value={"No"} onChange={onMessageChange} />
+  //         </label>
+  //         {/* <button onClick={console.log("button firing")}>Submit</button> */}
+  //       </div>
+  //     </div>
+  //   )
+  // }
 
   const CloseButton = ({ closeToast }) => {
     return (
@@ -62,7 +71,7 @@ const ShareButtons = ({ campaign, socialData }) => {
 
   const displayXMsg = () => {
     toast(<ToastInfo
-      messageSent={messageSent}
+      // messageSent={messageSent}
       setMessageSent={setMessageSent}
     />, {
       position: "top-center",
@@ -104,8 +113,17 @@ const ShareButtons = ({ campaign, socialData }) => {
         >
           <FaFacebookF size={40} round={true} />
         </FacebookShareButton>
-        <IoCheckmarkCircleSharp
+        {/* <IoCheckmarkCircleSharp
           style={{ color: "#018749", width: "24px", height: "24px", position: "relative", right: "25px", bottom: "4px" }}
+          className={clsx({
+            'show': isShowingFB,
+            'hide': !isShowingFB
+          })}
+        /> */}
+        <Image
+          src={greenCheck}
+          style={{ width: "24px", height: "24px", position: "relative", right: "30px", bottom: "4px" }}
+          alt="Facebook"
           className={clsx({
             'show': isShowingFB,
             'hide': !isShowingFB
@@ -122,8 +140,17 @@ const ShareButtons = ({ campaign, socialData }) => {
         >
           <BsTwitterX size={40} round={true} />
         </TwitterShareButton>
-        <ImCheckmark
+        {/* <ImCheckmark
           style={{ color: "#018749", width: "24px", height: "24px", position: "relative", right: "30px", bottom: "4px" }}
+          className={clsx({
+            'show': isShowingX,
+            'hide': !isShowingX
+          })}
+        /> */}
+        <Image
+          src={greenCheck}
+          style={{ width: "24px", height: "24px", position: "relative", right: "30px", bottom: "4px" }}
+          alt="X"
           className={clsx({
             'show': isShowingX,
             'hide': !isShowingX
