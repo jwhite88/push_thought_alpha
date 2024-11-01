@@ -27,6 +27,7 @@ const ShareButtons = ({ campaign, socialData }) => {
   const [isShowingX, setIsShowingX] = useState(true)
   const [isShowingFB, setIsShowingFB] = useState(false)
   const [messageSent, setMessageSent] = useState("")
+  const [showToastInfo, setShowToastInfo] = useState(false)
 
 
   // const ToastInfo = ({ setMessageSent }) => {
@@ -70,15 +71,17 @@ const ShareButtons = ({ campaign, socialData }) => {
   }
 
   const displayXMsg = () => {
-    toast(<ToastInfo
-      // messageSent={messageSent}
-      setMessageSent={setMessageSent}
-    />, {
-      position: "top-center",
-      hideProgressBar: true,
-      autoClose: false,
-      onClose: postingMessage
-    })
+    // toast(<ToastInfo
+    //   // messageSent={messageSent}
+    //   setMessageSent={setMessageSent}
+    // />)
+
+    return (
+      (<ToastInfo
+        // messageSent={messageSent}
+        setMessageSent={setMessageSent}
+      />)
+    )
 
   }
 
@@ -88,23 +91,38 @@ const ShareButtons = ({ campaign, socialData }) => {
 
   }, [socialData])
 
+  const handleSubmitTest = () => {
+    console.log(`It worked and ${messageSent}`)
+  }
+
+  useEffect(() => {
+    handleSubmitTest()
+  }, [messageSent])
+
   // Safely access target_facebook.address and target_x.address
   const facebookAddress = campaign?.target_facebook?.address || '';
   const twitterAddress = campaign?.target_x?.address || '';
 
   const xClosed = () => {
-    console.log("just closed X")
-    displayXMsg()
+    // console.log("just closed X")
+    setShowToastInfo(true)
   }
+
+
 
   return (
     <>
+      {showToastInfo && <ToastInfo
+        setMessageSent={setMessageSent}
+        setShowToastInfo={setShowToastInfo}
+      // handleSubmitTest={handleSubmitTest}
+      />}
       <h3 className='text-xl font-bold text-center pt-2'>
       </h3>
-      <ToastContainer
+      {/* <ToastContainer
         style={{ marginTop: "300px", fontSize: "52px", width: "600px" }}
         closeButton={CloseButton}
-      />
+      /> */}
       <div className="flex gap-3 justify-center pb-1 pt-1">
         <FacebookShareButton className='justify-center'
           url={shareUrl}
