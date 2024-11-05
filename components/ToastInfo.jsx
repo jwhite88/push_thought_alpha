@@ -2,16 +2,9 @@ import { set } from 'mongoose'
 import React, { useState } from 'react'
 import Swal from 'sweetalert2'
 
-
+let count = 0;
 const ToastInfo = ({ setMessageSent, setShowToastInfo }) => {
-    // const [toastShared, setToastShared] = useState("")
-    // const onMessageChange = (event) => {
-    //     let message = event.target.value
-    //     console.log("toastShared: ", toastShared)
-    //     console.log("For sent msg", event.target.value)
-    //     setToastShared(message)
-    //     setMessageSent(message)
-    // }
+
 
     const showConfirmationForm = () => {
         Swal.fire({
@@ -21,13 +14,16 @@ const ToastInfo = ({ setMessageSent, setShowToastInfo }) => {
             confirmButtonText: "Yes"
         })
             .then((result) => {
+                ++count;
+                console.log("count:", count)
                 if (result.isConfirmed) {
                     setMessageSent("Yes")
-                    setShowToastInfo(false)
+                    // setShowToastInfo(true)
                     // handleSubmitTest()
                     Swal.close()
-                } else if (result.isDismissed) {
-                    setShowToastInfo(false)
+                } else if (result.isDismissed && count > 1) {
+                    // && count > 1
+                    // setShowToastInfo(true)
                     // handleSubmitTest()
                     // Swal.close()
                     setMessageSent("No")

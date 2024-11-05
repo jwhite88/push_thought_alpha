@@ -30,33 +30,6 @@ const ShareButtons = ({ campaign, socialData }) => {
   const [showToastInfo, setShowToastInfo] = useState(false)
 
 
-  // const ToastInfo = ({ setMessageSent }) => {
-  //   const [toastShared, setToastShared] = useState("")
-  //   const onMessageChange = (event) => {
-  //     let message = event.target.value
-  //     console.log("toastShared: ", toastShared)
-  //     console.log("For sent msg", event.target.value)
-  //     setToastShared(message)
-  //     // setMessageSent(message)
-  //     myMethod(message)
-  //   }
-
-  //   return (
-  //     <div>
-  //       <h2 style={{ fontSize: '20pt' }} >Did you send your message? Confirm below to be counted in our metrics.</h2>
-  //       <div>
-  //         <label>
-  //           <span style={{ display: "inline-block", }}>Yes</span> <input type="radio" style={{ transform: "scale(3.5)", position: "relative", bottom: "10px", left: "20px", display: "inline-block" }} name="isShared" value={"Yes"} onChange={onMessageChange} /> <br />
-  //         </label>
-  //         <label>
-  //           <span style={{ display: "inline-block" }}>No</span>  <input type="radio" style={{ transform: "scale(3.5)", position: "relative", bottom: "10px", left: "39px", display: "inline-block" }} name="isShared" value={"No"} onChange={onMessageChange} />
-  //         </label>
-  //         {/* <button onClick={console.log("button firing")}>Submit</button> */}
-  //       </div>
-  //     </div>
-  //   )
-  // }
-
   const CloseButton = ({ closeToast }) => {
     return (
       <i
@@ -96,8 +69,11 @@ const ShareButtons = ({ campaign, socialData }) => {
   }
 
   useEffect(() => {
-    handleSubmitTest()
-  }, [messageSent])
+    // handleSubmitTest()
+    console.log(`This is the messageSent: ${messageSent}`)
+    console.log("showToastInfo has changed in the useEffect", showToastInfo)
+    setShowToastInfo(false)
+  }, [showToastInfo])
 
   // Safely access target_facebook.address and target_x.address
   const facebookAddress = campaign?.target_facebook?.address || '';
@@ -105,16 +81,22 @@ const ShareButtons = ({ campaign, socialData }) => {
 
   const xClosed = () => {
     // console.log("just closed X")
+    // if (messageSent === "Yes") {
+    //   return;
+    // }
     setShowToastInfo(true)
+    // if ( messageSent === "No") {
+    //   setShowToastInfo(true)
+    // } else if (messageSent === "Yes") {
+    //   setShowToastInfo(false)
+    // }
   }
-
-
 
   return (
     <>
       {showToastInfo && <ToastInfo
         setMessageSent={setMessageSent}
-        setShowToastInfo={setShowToastInfo}
+      // setShowToastInfo={setShowToastInfo}
       // handleSubmitTest={handleSubmitTest}
       />}
       <h3 className='text-xl font-bold text-center pt-2'>
