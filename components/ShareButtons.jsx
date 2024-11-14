@@ -10,7 +10,7 @@ import {
   WhatsappIcon,
   EmailIcon,
 } from 'react-share'
-import ToastInfo from './ToastInfo';
+// import ToastInfo from './ToastInfo';
 import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import { ImCheckmark } from "react-icons/im";
 import { BsTwitterX } from "react-icons/bs";
@@ -19,7 +19,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import clsx from 'clsx';
 import "../assets/styles/checkmarks.css"
-import greenCheck from "../assets/images/green_check.png"
+import greenCheck from "../assets/images/green_check.png";
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content'
+
+let count = 0;
 
 const ShareButtons = ({ campaign, socialData }) => {
   const shareUrl = `${process.env.NEXT_PUBLIC_DOMAIN}/campaigns/${campaign._id}`
@@ -27,8 +31,43 @@ const ShareButtons = ({ campaign, socialData }) => {
   const [isShowingX, setIsShowingX] = useState(true)
   const [isShowingFB, setIsShowingFB] = useState(false)
   const [messageSent, setMessageSent] = useState("")
-  const [showToastInfo, setShowToastInfo] = useState(false)
+  const [showToastInfo, setShowToastInfo] = useState(true)
 
+  const MySwal = withReactContent(Swal)
+ 
+   const mysweetClick = () => {
+    if (showToastInfo) {
+    MySwal.fire({
+        title: "Did you send your message? Confirm below to be counted in our metrics.",
+        cancelButtonText: "No",
+        showCancelButton: true,
+        confirmButtonText: "Yes"
+    })
+        .then((result) => {
+            ++count;
+            console.log("count:", count)
+            if (result.isConfirmed) {
+                setMessageSent("Yes")
+                console.log("In the `isConfirmed` block")
+                setShowToastInfo(false)
+                // handleSubmitTest()
+                Swal.close()
+            } else if (result.isDismissed && count > 1) {
+                // && count > 1
+                setShowToastInfo(true)
+                // handleSubmitTest()
+                // Swal.close()
+                setMessageSent("No")
+                console.log("In the dismissed")
+                // if (result.isConfirmed) {
+                //     console.log("In the dismissed")
+                // }
+
+            }
+
+        });
+    }
+}
 
   const CloseButton = ({ closeToast }) => {
     return (
@@ -65,15 +104,15 @@ const ShareButtons = ({ campaign, socialData }) => {
   }, [socialData])
 
   const handleSubmitTest = () => {
-    console.log(`It worked and ${messageSent}`)
+    console.log(`It worked and messageSent is ${messageSent}`)
   }
 
   useEffect(() => {
-    // handleSubmitTest()
-    console.log(`This is the messageSent: ${messageSent}`)
-    console.log("showToastInfo has changed in the useEffect", showToastInfo)
-    setShowToastInfo(false)
-  }, [showToastInfo])
+    handleSubmitTest()
+    // console.log(`This is the messageSent: ${messageSent}`)
+    // console.log("showToastInfo has changed in the useEffect", showToastInfo)
+    // setShowToastInfo(false)
+  }, [messageSent])
 
   // Safely access target_facebook.address and target_x.address
   const facebookAddress = campaign?.target_facebook?.address || '';
@@ -84,7 +123,8 @@ const ShareButtons = ({ campaign, socialData }) => {
     // if (messageSent === "Yes") {
     //   return;
     // }
-    setShowToastInfo(true)
+    // setShowToastInfo(true)
+    mysweetClick()
     // if ( messageSent === "No") {
     //   setShowToastInfo(true)
     // } else if (messageSent === "Yes") {
@@ -94,11 +134,12 @@ const ShareButtons = ({ campaign, socialData }) => {
 
   return (
     <>
-      {showToastInfo && <ToastInfo
+      {/* {showToastInfo && <ToastInfo
         setMessageSent={setMessageSent}
       // setShowToastInfo={setShowToastInfo}
       // handleSubmitTest={handleSubmitTest}
-      />}
+      />} */}
+      {/* {showToastInfo && mysweet} */}
       <h3 className='text-xl font-bold text-center pt-2'>
       </h3>
       {/* <ToastContainer
