@@ -1,11 +1,43 @@
+'use client';
 // components/EmbeddedTweet.js
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { XEmbed } from 'react-social-media-embed';
 
+import { useState } from 'react'
+
+const apiDomain = process.env.NEXT_PUBLIC_API_DOMAIN || null
+
 const EmbeddedTweet = ({ tweetId }) => {
-    const handleRetweet = () => {
-        const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${tweetId}`;
-        window.open(retweetUrl, '_blank');
+    const handleRetweet = async (tweetId) => {
+        console.log("TWEET_ID")
+        console.log(tweetId)
+
+        fetch(`${apiDomain}/retweet`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tweetId: tweetId }),
+        })
+            .then((response) => {
+                return response.json()
+            })
+            .then((result) => {
+                console.log('result', result)
+            })
+
+        // try {
+        //     const response = fetch(`${apiDomain}/retweet`, {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json' },
+        //         body: JSON.stringify({ tweetId: tweetId }),
+        //     });
+        //     // console.log('response: ' + response)
+        //     const data = response.json();
+        //     if (data.success) alert('Retweeted successfully!');
+        // } catch (error) {
+        //     console.error('Failed to retweet:', error);
+        // }
+        // const retweetUrl = `https://twitter.com/intent/retweet?tweet_id=${tweetId}`;
+        // window.open(retweetUrl, '_blank');
     };
 
     return (
@@ -20,7 +52,7 @@ const EmbeddedTweet = ({ tweetId }) => {
                     marginBottom: '10px',
                 }}
             >
-                <button onClick={handleRetweet}
+                <button onClick={() => handleRetweet(tweetId)}
                     style={{
                         // marginTop: '10px',
                         marginBottom: '10px',
@@ -40,9 +72,6 @@ const EmbeddedTweet = ({ tweetId }) => {
             </div>
 
             <TwitterTweetEmbed tweetId={tweetId} />
-
-            {/* <XEmbed url="https://twitter.com/PixelAndBracket/status/1356633038717923333" width={325} /> */}
-
 
         </div>
     );

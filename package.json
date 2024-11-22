@@ -29,7 +29,8 @@
     "react-twitter-embed": "^4.0.4",
     "styled-jsx": "^5.1.6",
     "sweetalert2": "^11.14.4",
-    "sweetalert2-react-content": "^5.0.7"
+    "sweetalert2-react-content": "^5.0.7",
+    "twitter-api-v2": "^1.18.2"
   },
   "devDependencies": {
     "postcss": "^8",

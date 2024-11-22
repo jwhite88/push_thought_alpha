@@ -1,17 +1,6 @@
 import connectDB from '@/config/database'
 import GoogleProvider from 'next-auth/providers/google'
-import User from '@/models/User'; // <----- this is the problem
-
-
-
-//this was added as a fix
-// try {
-
-// } catch (error) {
-//     console.error('Failed to load User model:', error);
-// }
-//above added as a fix
-
+import User from '@/models/User'; 
 
 export const authOptions = {
     providers: [
@@ -28,8 +17,6 @@ export const authOptions = {
         })
     ],
     callbacks: {
-
-
         // Invoked on successful sign in
         async signIn({profile}) {
         // 1. Connect to databasee
